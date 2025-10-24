@@ -1,0 +1,126 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre&display=swap');
+@import 'tailwindcss';
+
+
+@config '../tailwind.config.js';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+/* Componentes personalizados */
+@utility btn {
+  @apply px-4 py-2 rounded-md transition-colors;
+}
+@utility btn-primary {
+  background-color: var(--color-primary) !important;
+  color: white !important;
+  &:hover {
+    background-color: color-mix(
+      in srgb,
+      var(--color-primary) 90%,
+      black
+    ) !important;
+  }
+}
+@utility btn-secondary {
+  background-color: var(--color-secondary) !important;
+  color: white !important;
+}
+@utility card {
+  @apply bg-white rounded-lg shadow-md p-4;
+}
+@utility container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+@layer utilities {
+  /* COLORES PERSONALIZADOS - EDITAR AQUÍ */
+  :root {
+    --color-primary: #4d4232;
+    --color-secondary: #9333ea;
+    --color-accent: #f59e0b;
+    --color-dark: #1f2937;
+    --color-light: #f3f4f6;
+  }
+
+  /* SOBRESCRITURA DIRECTA DE CLASES TAILWIND */
+  .text-primary {
+    color: var(--color-primary) !important;
+  }
+  .bg-primary {
+    background-color: var(--color-primary) !important;
+  }
+  .border-primary {
+    border-color: var(--color-primary) !important;
+  }
+  .hover\:bg-primary:hover {
+    background-color: var(--color-primary) !important;
+  }
+  .hover\:text-primary:hover {
+    color: var(--color-primary) !important;
+  }
+
+  .text-secondary {
+    color: var(--color-secondary) !important;
+  }
+  .bg-secondary {
+    background-color: var(--color-secondary) !important;
+  }
+  .border-secondary {
+    border-color: var(--color-secondary) !important;
+  }
+  .hover\:bg-secondary:hover {
+    background-color: var(--color-secondary) !important;
+  }
+
+  .text-accent {
+    color: var(--color-accent) !important;
+  }
+  .bg-accent {
+    background-color: var(--color-accent) !important;
+  }
+  .border-accent {
+    border-color: var(--color-accent) !important;
+  }
+
+  /* Estilos base */
+}
+@layer base {
+  body {
+    @apply bg-light text-dark;
+  }
+  h1 {
+    @apply text-3xl font-bold;
+  }
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+  h3 {
+    @apply text-xl font-medium;
+  }
+} 
+
+@theme {
+  --inset-shadow-md: inset 0px 0px 22px 20px rgba(0, 0, 0, 0.5);
+}
+
+@theme {
+  --font-gemunu: "Gemunu Libre", sans-serif;
+}
+  

@@ -1,0 +1,48 @@
+/* ARCHIVO DE COLORES - EDITA AQUÍ PARA CAMBIOS EN TIEMPO REAL */
+
+:root {
+  --color-primary: #702571; 
+  --color-secondary: #c245c5; 
+  --color-accent: #f59e0b; 
+  --color-dark: #000000;
+  --color-light: #f3f4f6;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--color-primary) !important; /* Si usas Tailwind v3+ y tienes el color primary en tu config */
+}
+
+#hq .swiper-button-next,
+#hq .swiper-button-prev {
+  color: var(--color-light) !important; /* Si usas Tailwind v3+ y tienes el color primary en tu config */
+}
+
+
+.text-primary { color: var(--color-primary) !important; }
+.bg-primary { background-color: var(--color-primary) !important; }
+.border-primary { border-color: var(--color-primary) !important; }
+.hover\:bg-primary:hover { background-color: var(--color-primary) !important; }
+.hover\:text-primary:hover { color: var(--color-primary) !important; }
+
+
+.text-secondary { color: var(--color-secondary) !important; }
+.bg-secondary { background-color: var(--color-secondary) !important; }
+.border-secondary { border-color: var(--color-secondary) !important; }
+.hover\:bg-secondary:hover { background-color: var(--color-secondary) !important; }
+
+.text-accent { color: var(--color-accent) !important; }
+.bg-accent { background-color: var(--color-accent) !important; }
+.border-accent { border-color: var(--color-accent) !important; }
+
+.btn-primary {
+  background-color: var(--color-primary) !important;
+  color: white !important;
+}
+.btn-primary:hover {
+  filter: brightness(90%) !important;
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary) !important;
+  color: white !important;
+} 

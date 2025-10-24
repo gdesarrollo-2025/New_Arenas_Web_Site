@@ -1,0 +1,18 @@
+{
+  "watch": [
+    "tailwind.config.js",
+    "postcss.config.js",
+    "next.config.js",
+    "styles/**/*.css",
+    "components/**/*.js",
+    "pages/**/*.js"
+  ],
+  "exec": "npx next dev",
+  "ext": "js,json,jsx,tsx,css",
+  "ignore": ["node_modules", ".next"],
+  "legacyWatch": true,
+  "delay": "250",
+  "events": {
+    "restart": "echo [Nodemon] Reiniciando debido a cambios..."
+  }
+} 
