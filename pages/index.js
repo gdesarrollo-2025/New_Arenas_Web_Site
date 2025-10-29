@@ -28,10 +28,10 @@ export default function Home() {
         <InvestmentSection/>
         <PromoBanner/>
         <PopularCities />
-        <FeaturedListing />
+        {/* <FeaturedListing /> */}
         <Testimonials />
         <OurAgents />
-        <Newsletter />
+       {/*  <Newsletter /> */}
       </main>
       <Footer />
       

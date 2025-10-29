@@ -46,13 +46,14 @@ export default function PropertyCard({ property, loading = false }) {
               {!imageLoaded && (
                 <div className="absolute inset-0 bg-gray-300 animate-pulse"></div>
               )}
-              <img
+              <Image
                 src={property.mainImage || '/images/property-placeholder.jpg'}
                 alt={property.title}
                 className={`w-full h-full object-cover transition-opacity duration-300 ${
                   imageLoaded ? 'opacity-100' : 'opacity-0'
                 }`}
                 onLoad={() => setImageLoaded(true)}
+                fill
               />
             </div>
           </a>

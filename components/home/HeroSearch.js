@@ -19,7 +19,6 @@ export default function HeroSearch() {
   fetch('/api/domus-types')
     .then((res) => res.json())
     .then((data) => {
-      console.log(data.data)
       setTypes(data.data || []);
     })
     .catch(() => {
@@ -60,12 +59,6 @@ export default function HeroSearch() {
         {/* Location */}
         <div className="relative ">
           <FaMapMarkerAlt className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-          {/* <select name="q" defaultValue={''} onChange={handleSelectChange} className="rounded-sm border pl-10 pr-8 py-2 w-full appearance-none">
-            <option value={''} disabled className="color-gray-500">Ciudad</option>
-            {cities.map(city => (
-              <option key={city.code} value={city.name}>{city.name}</option>
-            ))}
-          </select> */}
           <input type="text" name="q" placeholder="Ubicación" onChange={handleSelectChange} className="rounded-sm border pl-10 pr-8 py-2 w-full appearance-none"></input>
           {/* <FaChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" /> */}
         </div>

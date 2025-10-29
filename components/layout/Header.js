@@ -69,6 +69,7 @@ export default function Header() {
 
   // Manejar cambios en el input
   const handleSearchChange = (e) => {
+    console.log(e.target.value)
     setSearchQuery(e.target.value);
   };
 
@@ -150,7 +151,7 @@ export default function Header() {
               <a href="/properties" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Todos los inmuebles</a>
               <a href="/properties?type=2" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Casas</a>
               <a href="/properties?type=1" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Apartamentos</a>
-              <a href="/properties?type=3" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Locales</a>
+              <a href="/properties?type=4" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Locales</a>
             </div>
           </div>
           {/* Quienes somos Dropdown */}

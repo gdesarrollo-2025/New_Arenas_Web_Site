@@ -14,11 +14,11 @@ export default function Properties() {
       <div className="container-custom py-6">
 
         {/* Query Input  <SearchBar />*/}
-        <div className="flex flex-col md:flex-row gap-6 mt-6">
-          <div className="w-full md:w-1/4">
+        <div className="flex flex-col lg:flex-row gap-6 mt-6">
+          <div className="w-full lg:w-1/4">
             <FilterSidebar />
           </div>
-          <div className="w-full md:w-3/4">
+          <div className="w-full lg:w-3/4">
             <PropertyList />
           </div>
         </div>

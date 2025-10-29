@@ -13,52 +13,42 @@ export default function HistorySection() {
         {
             title: "Fundación",
             description: "Fundada en 1943 por Jorge Enrique Arenas en el centro de la ciudad de Barranquilla, tenemos 80 Años de Experiencia, nos hicimos miembros fundadores junto a otras inmobiliarias de la Lonja de Propiedad Raíz de Barranquilla.",
-            orientation: ""
         },
         {
             title: "Arenas S.A.",
             description: "En 1989 nos trasladamos al norte de la ciudad, bajo la dirección de Álvaro Arenas.",
-            orientation: ""
         },
         {
             title: "Prado",
             description: "En el 2001 cambiamos nuestro nombre a Arenas S.A. la imagen corporativa y en ese mismo año obtuvimos el certificado de Calidad de ICONTEC.",
-            orientation: ""
         },
         {
             title: "Cartagena",
             description: "En el 2002 Se realizó la apertura de nuestra sede en Cartagena, en el mismo año empezó nuestra alianza con El Libertador de Seguros Bolívar.",
-            orientation: ""
         },
         {
             title: "San Jorge",
             description: "En 2012 nos trasladamos una nueva sede en Barranquilla, más amplia y cómoda.",
-            orientation: ""
         },
         {
             title: "Gran Boulevard",
             description: "En 2014 estrenamos una nueva sede Comercial Gran Boulevard y cambiamos la imagen corporativa.",
-            orientation: ""
         },
         {
             title: "Dirección de proyectos",
             description: "En el año 2014 se crea el departamento de proyectos.",
-            orientation: ""
         },
         {
             title: "Equipo digital",
             description: "Buscando estar a la vanguardia del mercado se crea el equipo de atención digital en diciembre de 2021.",
-            orientation: ""
         },
         {
             title: "Reconocimiento FEDELONJAS",
             description: `Fedelonjas entrega el reconocimiento "Hernando Luque Ospina" en la categoría "Vida y Obra” al Sr. Álvaro Arenas como testimonio a sus años de labor`,
-            orientation: ""
         },
         {
             title: "Arenas Marketing",
             description: "Nace la agencia de Marketing de Arenas y se crea el establecimiento comercial en 2024.",
-            orientation: ""
         }
     ]
     return (

@@ -77,7 +77,7 @@ export default function MobileMenu({ active, setActive }) {
     >
       <div className="flex flex-col items-center">
         {buttons.map((button, index) => (
-          <div key={index}>
+          <div className="w-full" key={index}>
             <MobileMenuButton name={button.name} links={button.links} />
           </div>
         ))}

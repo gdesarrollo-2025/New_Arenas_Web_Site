@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
+
 import { useRouter } from 'next/router';
 import PropertyCard from './PropertyCard';
 import { FaSort, FaTh, FaList, FaBed, FaBath, FaRuler, FaAngleLeft, FaAngleRight, FaSearch } from 'react-icons/fa';
 import { getProperties, getBizTypeName, getPropertyTypeName } from '../../lib/api';
 import Link from 'next/link';
+import Image from "next/image";
 
 export default function PropertyList() {
   const router = useRouter();
@@ -197,7 +199,7 @@ export default function PropertyList() {
   return (
     <div className="bg-white rounded-lg shadow-md p-4">
       {/* Toolbar */}
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex flex-col  gap-4 sm:flex-row justify-between items-center mb-4">
         <div>
           <h2 className="text-xl font-semibold">
             {loading ? 'Cargando inmuebles...' : `${pagination.total} Inmuebles Encontrados`}
@@ -244,7 +246,7 @@ export default function PropertyList() {
       {loading && (
         <>
           <div className="flex flex-col items-center justify-center py-6 mb-6">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-primary mb-4"></div>
+            <Image src="/images/LogoSolo.png" width={50} height={50} alt="logo cargando"  className="animate-spin" />
             <p className="text-gray-600 text-lg font-medium animate-pulse">Buscando inmuebles...</p>
             <p className="text-gray-500 text-sm mt-2">Esto puede tardar un momento</p>
           </div>

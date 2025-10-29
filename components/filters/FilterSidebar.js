@@ -479,16 +479,16 @@ export default function FilterSidebar() {
   return (
     <>
       {/* Desktop Filter */}
-      <div className="hidden md:block bg-white rounded-lg shadow-md p-4">
+      <div className="hidden lg:block bg-white rounded-lg shadow-md p-4">
         <h2 className="text-xl font-semibold mb-4">Filtros</h2>
         <FilterContent />
       </div>
       
       {/* Mobile Filter Button */}
-      <div className="md:hidden">
+      <div className="lg:hidden">
         <button
           onClick={() => setMobileFilterOpen(true)}
-          className="fixed bottom-4 right-4 bg-primary text-white p-4 rounded-full shadow-lg z-20"
+          className="fixed bottom-22 right-3 bg-primary text-white p-6 rounded-full shadow-lg z-20"
         >
           <FaFilter />
         </button>
