@@ -1,8 +1,8 @@
 import Image from 'next/image';
 const testimonials = [
-  { name: 'Macha Mila', img: '/images/avatar1.jpg', text: "Working with this team was a pleasure. They understood our vision and helped us find a property that exceeded our expectations. We couldn't have done it without them." },
-  { name: 'John Doe', img: '/images/avatar2.jpg', text: 'Great experience! Highly recommended for anyone looking for a new home.' },
-  { name: 'Jane Smith', img: '/images/avatar3.jpg', text: 'Professional, efficient, and friendly service. Thank you!' },
+  { name: 'Macha Mila', img: '/images/avatar1.webp', text: "Working with this team was a pleasure. They understood our vision and helped us find a property that exceeded our expectations. We couldn't have done it without them." },
+  { name: 'John Doe', img: '/images/avatar2.webp', text: 'Great experience! Highly recommended for anyone looking for a new home.' },
+  { name: 'Jane Smith', img: '/images/avatar3.webp', text: 'Professional, efficient, and friendly service. Thank you!' },
 ];
 
 export default function Testimonials() {
@@ -14,7 +14,7 @@ export default function Testimonials() {
           {testimonials.map((t, idx) => (
             <div key={idx} className="bg-white rounded-lg shadow-md p-6 flex flex-col justify-between items-center h-full">
               <div className="rounded-full overflow-hidden ">
-                <Image src={t.img} alt={t.name} className="object-cover" width={96} height={96}/>
+                <Image src={t.img} alt={t.name} className="object-cover" width={96} height={96} sizes="96px"/>
               </div>
               <p className="text-gray-700 mb-4 text-center wrap">{t.text}</p>
               <span className="font-semibold text-gray-900">{t.name}</span>

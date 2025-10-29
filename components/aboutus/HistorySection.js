@@ -73,7 +73,7 @@ export default function HistorySection() {
                         autoplay={{ delay: 6000, disabledOnInteraction: false }}
                         loop
                         className="isolate text-center w-full h-full relative rounded-xl flex items-center content-center">
-                        <Image src="/images/numbers1.png" className="object-cover mix-blend-multiply" alt="historia grupos arenas" fill sizes="(max-width: 768) 90vw, 50vw" priority={true} />
+                        <Image src="/images/numbers1.webp" className="object-cover mix-blend-multiply" alt="historia grupos arenas" fill sizes="(max-width: 768) 90vw, 50vw" priority={true} />
                         <div className="absolute inset-0 bg-primary mix-blend-multiply"/>
                         {CardHistories.map((card, index) => (
                             <SwiperSlide key={index} className="items-center content-center  p-12 ">

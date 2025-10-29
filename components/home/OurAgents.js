@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
 const agents = [
-  { name: 'Derek Lane', img: '/images/agent1.jpg', role: 'Senior Estate Agent' },
-  { name: 'Wade Warren', img: '/images/agent2.jpg', role: 'Estate Agent' },
-  { name: 'Cory Valdez', img: '/images/agent3.jpg', role: 'Estate Agent' },
+  { name: 'Derek Lane', img: '/images/agent1.webp', role: 'Senior Estate Agent' },
+  { name: 'Wade Warren', img: '/images/agent2.webp', role: 'Estate Agent' },
+  { name: 'Cory Valdez', img: '/images/agent3.webp', role: 'Estate Agent' },
 ];
 
 export default function OurAgents() {
@@ -15,7 +15,7 @@ export default function OurAgents() {
           {agents.map((agent, idx) => (
             <div key={idx} className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
               <div className="relative   h-20 w-20 rounded-full overflow-hidden ">
-                <Image src={agent.img} alt={agent.name} className="object-cover" fill/>
+                <Image src={agent.img} alt={agent.name} className="object-cover" fill sizes="80px"/>
               </div>
               <span className="font-semibold text-gray-900 text-lg mb-1">{agent.name}</span>
               <span className="text-gray-500 text-sm mb-4">{agent.role}</span>

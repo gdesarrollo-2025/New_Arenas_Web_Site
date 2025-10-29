@@ -129,13 +129,11 @@ export default function Header() {
       <div className="container-custom py-4 flex items-center justify-between ">
         {/* Logo */}
         <a href="/" className="flex items-center min-w-[160px]">
-          <div className="rounded-xl bg-white/70 p-1 transition">
+          <div className="relative h-12 w-30 rounded-xl bg-white/70 p-1 transition">
             <Image
               src="/images/LOGO_BLACK.webp"
               alt="Arenas Logo"
-              width={160}
-              height={48}
-              className="h-12 w-auto"
+              fill
               priority
             />
           </div>

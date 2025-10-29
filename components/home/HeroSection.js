@@ -11,7 +11,7 @@ export default function HeroSection() {
       <div className="container-custom relative rounded-3xl overflow-hidden shadow-lg min-h-[600px] flex items-center justify-center">
         {/* Imagen de fondo */}
         <Image
-          src="/images/hero-house.jpg"
+          src="/images/hero-house.webp"
           alt="Casa hero"
           fill
           sizes="90vw"

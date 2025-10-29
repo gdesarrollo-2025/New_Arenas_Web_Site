@@ -20,9 +20,9 @@ export default function TrustedCompanies() {
             </h2>
             <div className="flex items-center gap-2 mt-2">
               {/* Avatares */}
-              <Image src="/images/avatar1.jpg" alt="user1" className="w-8 h-8 rounded-full border-2 border-white -ml-0" width={32} height={32}/>
-              <Image src="/images/avatar2.jpg" alt="user2" className="w-8 h-8 rounded-full border-2 border-white -ml-2" width={32} height={32}/>
-              <Image src="/images/avatar3.jpg" alt="user3" className="w-8 h-8 rounded-full border-2 border-white -ml-2" width={32} height={32}/>
+              <Image src="/images/avatar1.webp" alt="user1" className="w-8 h-8 rounded-full border-2 border-white -ml-0" width={32} height={32}/>
+              <Image src="/images/avatar2.webp" alt="user2" className="w-8 h-8 rounded-full border-2 border-white -ml-2" width={32} height={32}/>
+              <Image src="/images/avatar3.webp" alt="user3" className="w-8 h-8 rounded-full border-2 border-white -ml-2" width={32} height={32}/>
               <span className="ml-2 text-xs text-gray-500">3K+ Clientes</span>
               <span className="ml-1 text-orange-500 text-lg font-bold">★</span>
             </div>
@@ -60,7 +60,7 @@ export default function TrustedCompanies() {
           {companyLogos.map((src, idx) => (
             <SwiperSlide key={idx} className="relative flex items-center justify-items-center ">
               <div className="relative h-14 w-full">
-                <Image src={src} alt={`Company${idx + 1}`} className="object-contain select-none" fill />
+                <Image src={src} alt={`Company${idx + 1}`} className="object-contain select-none" fill sizes=""/>
               </div>
               
             </SwiperSlide>

@@ -8,7 +8,7 @@ export default function CardHistory({ title, description, index }) {
                 <p className="text-justify text-gray-700" data-swiper-parallax="-100">{description}</p>
             </div>
             <div className="relative h-8/12 w-full rounded-lg justify-self-end">
-                <Image className="object-cover rounded-lg" src="/images/BarranquillaFoto.jpg" priority={index === 0} sizes="(max-width: 768px) 85vw, 50vw" alt={title} fill  />
+                <Image className="object-cover rounded-lg" src="/images/BarranquillaFoto.webp" priority={index === 0} sizes="(max-width: 768px) 85vw, 50vw" alt={title} fill  />
             </div>
         </div>
     )

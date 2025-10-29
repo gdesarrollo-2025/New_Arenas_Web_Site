@@ -13,10 +13,8 @@ export default function OurNumbersSection() {
     ]
     return (
         <section className="relative text-white py-10 h-auto lg:h-150">
-            <div className="">
-                <Image src="/images/numbers1.png" alt="Our numbers" className="md:object-cover mix-blend-multiply " sizes="100vw" fill />
-                <div className="absolute inset-0 w-full h-full bg-green-800 mix-blend-multiply" />
-            </div>
+            <Image src="/images/numbers1.webp" alt="Our numbers" className="object-cover mix-blend-multiply " sizes="100vw" fill />
+            <div className="absolute inset-0 w-full h-full bg-green-800 mix-blend-multiply" />
             <div className="relative custom-container px-5 flex flex-col justify-center items-center gap-10   items-center z-2">
                 <div className="border-b-4 rounded-b-lg  text-center p-2">
                     <h2 className="text-xl font-medium"> Nuestras cifras nos respaldan</h2>

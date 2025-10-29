@@ -13,9 +13,9 @@ export default function OurHQs() {
     const [firstSwiper, setFirstSwiper] = useState(null);
     const [secondSwiper, setSecondSwiper] = useState(null);
 
-    const HQs = [{ src: "/images/BarranquillaFoto.jpg", title: "Gran Boulevard", city: "Barranquilla", address: "Calle 106 # 50 Esquina", phone: "6053859191", coords: { lat: "11.014136275825265", lng: "-74.83636444272058" } },
-    { src: "/images/BarranquillaFoto.jpg", title: "Prado", city: "Barranquilla", address: "Cra. 58 # 75 - 78", phone: "6053859191", coords: { lat: "11.00498530383173", lng: "-74.80089167637064" } },
-    { src: "/images/CartagenaFoto.jpg", title: "Sede Cartagena", city: "Cartagena", address: "Cra. 2 # 13 - 81", phone: "6056934000", coords: { lat: "10.411544607739524", lng: "-75.55067562698169" } },
+    const HQs = [{ src: "/images/BarranquillaFoto.webp", title: "Gran Boulevard", city: "Barranquilla", address: "Calle 106 # 50 Esquina", phone: "6053859191", coords: { lat: "11.014136275825265", lng: "-74.83636444272058" } },
+    { src: "/images/BarranquillaFoto.webp", title: "Prado", city: "Barranquilla", address: "Cra. 58 # 75 - 78", phone: "6053859191", coords: { lat: "11.00498530383173", lng: "-74.80089167637064" } },
+    { src: "/images/CartagenaFoto.webp", title: "Sede Cartagena", city: "Cartagena", address: "Cra. 2 # 13 - 81", phone: "6056934000", coords: { lat: "10.411544607739524", lng: "-75.55067562698169" } },
     ]
 
     useEffect(() => {

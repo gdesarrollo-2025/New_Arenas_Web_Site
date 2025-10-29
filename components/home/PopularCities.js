@@ -4,12 +4,12 @@ import Link from 'next/link';
 const cities = [
   { 
     name: 'Barranquilla', 
-    img: '/images/BarranquillaFoto.jpg', 
+    img: '/images/BarranquillaFoto.webp', 
     link: '/properties?q=Barranquilla'
   },
   { 
     name: 'Cartagena', 
-    img: '/images/CartagenaFoto.jpg', 
+    img: '/images/CartagenaFoto.webp', 
     link: '/properties?q=Cartagena'
   },
 ];
@@ -24,7 +24,7 @@ export default function PopularCities() {
             <Link href={city.link} key={city.name}>
               <div className="relative flex flex-col items-center cursor-pointer transform hover:scale-105 transition-transform">
                 <div className=" relative w-40 h-40 rounded-full overflow-hidden mb-3 border-4 border-gray-100 shadow-lg">
-                 <Image src={city.img} alt={city.name} className="object-cover" fill/>
+                 <Image src={city.img} alt={city.name} className="object-cover" sizes="152px"fill/>
                 </div>
                 <span className="font-semibold text-gray-700 text-lg">{city.name}</span>
               </div>
