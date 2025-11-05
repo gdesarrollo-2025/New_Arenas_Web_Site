@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   const timeout = 30000; // (por ejemplo, 30 segundos)
   const timeoutId = setTimeout(() => controller.abort(), timeout);
   try {
-    const { q, perpage } = req.query;
+    const {q, perpage } = req.query;
     const queryParams = new URLSearchParams(req.query);
 //console.log(process.env.NEXT_PUBLIC_DOMUS_API_TOKEN);
 //console.log(process.env.NEXT_PUBLIC_API_URL);

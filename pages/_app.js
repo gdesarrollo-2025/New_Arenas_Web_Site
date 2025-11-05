@@ -22,12 +22,7 @@ function MyApp({ Component, pageProps }) {
     // Recargar en montaje inicial 
     reloadCSS();
 
-    // Recargar cada 2 segundos para detectar cambios
-    const interval = setInterval(() => {
-      reloadCSS();
-    }, 2000);
-
-    return () => clearInterval(interval);
+    
   }, []);
 
   return (

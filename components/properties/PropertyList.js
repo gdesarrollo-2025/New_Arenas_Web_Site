@@ -38,6 +38,7 @@ export default function PropertyList() {
     const filters = {
       query: queryParams.q || '',
       location: queryParams.location || '',
+      neighborhood_code: queryParams.neighborhood || '',
       propertyType: queryParams.type ? queryParams.type.split(',') : [],
       bizType: queryParams.biz || '',
       sortBy: sortBy,

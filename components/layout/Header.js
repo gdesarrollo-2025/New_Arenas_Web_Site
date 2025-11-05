@@ -49,24 +49,38 @@ export default function Header() {
 
   // Ejecutar la búsqueda cuando el valor debounced cambia
   useEffect(() => {
-    if (!debouncedSearchQuery.trim()) return;
+  if (!debouncedSearchQuery.trim()) return;
 
-    const query = new URLSearchParams();
-    query.set('q', debouncedSearchQuery);
+  const fetchParsedQuery = async () => {
+    try {
+      const result = await parseSearchQuery(debouncedSearchQuery);
 
-    // Añadir filtro por tipo de negocio si está seleccionado
-    if (bizType) {
-      query.set('biz', bizType);
+      const query = new URLSearchParams();
+
+      if (result.location) query.set('location', result.location);
+      if (result.neighborhood) query.set('neighborhood', result.neighborhood);
+      if (result.propertyType) query.set('type', result.propertyType);
+      if (result.bizType) query.set('biz', result.bizType);
+      if (result.bedrooms) query.set('bedrooms', result.bedrooms);
+      if (result.bathrooms) query.set('bathrooms', result.bathrooms);
+      if (result.minPrice) query.set('minPrice', result.minPrice);
+      if (result.maxPrice) query.set('maxPrice', result.maxPrice);
+
+
+
+      const currentPath = router.asPath;
+      const newPath = `/properties?${query.toString()}`;
+
+      if (currentPath !== newPath) {
+        router.push(newPath);
+      }
+    } catch (error) {
+      console.error("Error interpretando búsqueda:", error);
     }
+  };
 
-    // Solo redirigir si no estamos ya en la página de propiedades con la misma búsqueda
-    const currentPath = router.asPath;
-    const newPath = `/properties?${query.toString()}`;
-
-    if (currentPath !== newPath) {
-      router.push(newPath);
-    }
-  }, [debouncedSearchQuery, bizType, router]);
+  fetchParsedQuery();
+}, [debouncedSearchQuery]);
 
   // Manejar cambios en el input
   const handleSearchChange = (e) => {
@@ -105,15 +119,13 @@ export default function Header() {
 
       if (result.location) query.set('location', result.location);
       if (result.neighborhood) query.set('neighborhood', result.neighborhood);
-      if (result.propertyType) query.set('propertyType', result.propertyType);
-      if (result.bizType) query.set('bizType', result.bizType);
+      if (result.propertyType) query.set('type', result.propertyType);
+      if (result.bizType) query.set('biz', result.bizType);
       if (result.bedrooms) query.set('bedrooms', result.bedrooms);
       if (result.bathrooms) query.set('bathrooms', result.bathrooms);
       if (result.minPrice) query.set('minPrice', result.minPrice);
       if (result.maxPrice) query.set('maxPrice', result.maxPrice);
 
-      // Guardar la búsqueda original
-      query.set('q', searchQuery);
       // 🚀 Redirigir a la página de resultados
       router.push(`/properties?${query.toString()}`);
     } catch (error) {

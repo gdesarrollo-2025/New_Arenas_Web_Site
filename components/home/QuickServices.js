@@ -18,7 +18,7 @@ export default function QuickServices() {
           modules={[Navigation, Autoplay]}
           spaceBetween={5}
           navigation
-          autoplay={{ delay: 3000, disabledOnInteraction: false }}
+          autoplay={{ delay: 2000, disabledOnInteraction: false }}
           loop
           className="max-w-6xl h-full text-center   "
           breakpoints={{
