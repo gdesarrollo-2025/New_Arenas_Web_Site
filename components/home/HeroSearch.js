@@ -7,7 +7,6 @@ import SelectField from './SelectField';
 export default function HeroSearch() {
   const router = useRouter();
   const [filters, setFilters] = useState({})
-  const [cities, setCities] = useState([]);
   const [types, setTypes] = useState([]);
 
   const biz = [{ code: 1, name: 'Arriendo' },

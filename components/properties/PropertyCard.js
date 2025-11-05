@@ -47,7 +47,7 @@ export default function PropertyCard({ property, loading = false }) {
                 <div className="absolute inset-0 bg-gray-300 animate-pulse"></div>
               )}
               <Image
-                src={property.mainImage || '/images/property-placeholder.jpg'}
+                src={property.mainImage || '/images/property-placeholder.webp'}
                 alt={property.title}
                 className={`w-full h-full object-cover transition-opacity duration-300 ${
                   imageLoaded ? 'opacity-100' : 'opacity-0'

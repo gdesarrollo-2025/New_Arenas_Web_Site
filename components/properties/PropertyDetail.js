@@ -203,7 +203,7 @@ export default function PropertyDetail({ id }) {
                 // Imagen por defecto si no hay imágenes
                 <div className="relative w-full h-full flex items-center justify-center bg-gray-100 rounded-lg">
                   <Image
-                    src="/images/property-placeholder.jpg"
+                    src="/images/property-placeholder.webp"
                     alt="Sin imágenes disponibles"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"

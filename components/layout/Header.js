@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { FaSearch, FaUser, FaBars, FaChevronDown, FaTimes } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 
+import parseSearchQuery from '../../lib/parserSearchQuery';
 import MobileMenu from './MobileMenu';
 
 export default function Header() {
@@ -91,19 +92,33 @@ export default function Header() {
   };
 
   // Mantener el handler del formulario para casos donde el usuario presiona Enter
-  const handleQuickSearch = (e) => {
+  const handleQuickSearch = async (e) => {
     e.preventDefault();
     if (!searchQuery.trim()) return;
 
-    const query = new URLSearchParams();
-    query.set('q', searchQuery);
+    try {
+      // 🧠 Interpretar la frase del usuario usando tu parser
+      const result = await parseSearchQuery(searchQuery);
 
-    // Añadir filtro por tipo de negocio si está seleccionado
-    if (bizType) {
-      query.set('biz', bizType);
+      // 🧩 Crear los parámetros usando las mismas claves del parser
+      const query = new URLSearchParams();
+
+      if (result.location) query.set('location', result.location);
+      if (result.neighborhood) query.set('neighborhood', result.neighborhood);
+      if (result.propertyType) query.set('propertyType', result.propertyType);
+      if (result.bizType) query.set('bizType', result.bizType);
+      if (result.bedrooms) query.set('bedrooms', result.bedrooms);
+      if (result.bathrooms) query.set('bathrooms', result.bathrooms);
+      if (result.minPrice) query.set('minPrice', result.minPrice);
+      if (result.maxPrice) query.set('maxPrice', result.maxPrice);
+
+      // Guardar la búsqueda original
+      query.set('q', searchQuery);
+      // 🚀 Redirigir a la página de resultados
+      router.push(`/properties?${query.toString()}`);
+    } catch (error) {
+      console.error("Error interpretando búsqueda:", error);
     }
-
-    router.push(`/properties?${query.toString()}`);
   };
 
   const handlePropertiesClick = (e) => {
@@ -201,7 +216,7 @@ export default function Header() {
         <div className="container-custom py-2">
           <form onSubmit={handleQuickSearch} className="flex w-full gap-2 max-w-xl mx-auto">
             <input
-              type="text" 
+              type="text"
               placeholder="Buscar por ciudad, barrio, código..."
               className="border border-gray-300 rounded-full py-2 px-4 grow text-sm focus:outline-primary"
               value={searchQuery}

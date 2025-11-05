@@ -246,7 +246,7 @@ export default function PropertyList() {
       {loading && (
         <>
           <div className="flex flex-col items-center justify-center py-6 mb-6">
-            <Image src="/images/LogoSolo.png" width={50} height={50} alt="logo cargando"  className="animate-spin" />
+            <Image src="/images/LogoSolo.webp" width={50} height={50} alt="logo cargando"  className="animate-spin" />
             <p className="text-gray-600 text-lg font-medium animate-pulse">Buscando inmuebles...</p>
             <p className="text-gray-500 text-sm mt-2">Esto puede tardar un momento</p>
           </div>
@@ -293,7 +293,7 @@ export default function PropertyList() {
                 area: property.area_cons,
                 biz_code: property.biz_code,
                 status: getBizTypeName(property.biz_code),
-                mainImage: property.image1 || '/images/property-placeholder.jpg',
+                mainImage: property.image1 || '/images/property-placeholder.webp',
                 description: property.description,
               }} 
             />
@@ -307,8 +307,8 @@ export default function PropertyList() {
           {properties.map(property => (
             <div key={property.id} className="flex flex-col sm:flex-row border rounded-lg overflow-hidden">
               <div className="sm:w-1/3 h-48 sm:h-auto relative">
-                <img
-                  src={property.image1 || '/images/property-placeholder.jpg'}
+                <Image
+                  src={property.image1 || '/images/property-placeholder.webp'}
                   alt={`${getPropertyTypeName(property.type_code)} en ${property.city_zone || property.zone || property.city}`}
                   className="w-full h-full object-cover"
                 />
