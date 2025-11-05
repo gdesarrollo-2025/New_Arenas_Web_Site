@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function PopularListings() {
@@ -105,11 +106,14 @@ export default function PopularListings() {
           {listings.map(listing => (
             <div key={listing.id} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
               <Link href={`/properties/${listing.id}`}>
-                <img 
+              <div className=" relative w-full h-48 object-cover hover:opacity-90 transition-opacity">
+                <Image
                   src={listing.img} 
                   alt={listing.title} 
-                  className="w-full h-48 object-cover hover:opacity-90 transition-opacity"
+                  className="object-cover"
+                  fill
                 />
+              </div>
               </Link>
               <div className="p-4 flex-1 flex flex-col">
                 <Link href={`/properties/${listing.id}`}>

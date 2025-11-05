@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre&display=swap');
+
 @import 'tailwindcss';
 
 
@@ -118,8 +118,3 @@
 @theme {
   --inset-shadow-md: inset 0px 0px 22px 20px rgba(0, 0, 0, 0.5);
 }
-
-@theme {
-  --font-gemunu: "Gemunu Libre", sans-serif;
-}
-  

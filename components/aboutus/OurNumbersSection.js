@@ -1,5 +1,7 @@
+
 import Image from "next/image";
 import Counter from "./Counter";
+
 
 export default function OurNumbersSection() {
     const NumbersData = [{ target: 10, label: "sedes y salas de ventas", duration: 100 },
