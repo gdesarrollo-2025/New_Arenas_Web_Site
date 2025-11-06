@@ -57,6 +57,7 @@ export default function Header() {
 
       const query = new URLSearchParams();
 
+      if (result.q) query.set('q', result.q);
       if (result.location) query.set('location', result.location);
       if (result.neighborhood) query.set('neighborhood', result.neighborhood);
       if (result.propertyType) query.set('type', result.propertyType);
@@ -84,7 +85,6 @@ export default function Header() {
 
   // Manejar cambios en el input
   const handleSearchChange = (e) => {
-    console.log(e.target.value)
     setSearchQuery(e.target.value);
   };
 
@@ -117,6 +117,7 @@ export default function Header() {
       // 🧩 Crear los parámetros usando las mismas claves del parser
       const query = new URLSearchParams();
 
+      if (result.q) query.set('q', result.q);
       if (result.location) query.set('location', result.location);
       if (result.neighborhood) query.set('neighborhood', result.neighborhood);
       if (result.propertyType) query.set('type', result.propertyType);
