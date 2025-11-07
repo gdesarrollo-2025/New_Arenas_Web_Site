@@ -1,154 +1,54 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState} from 'react';
 import Image from 'next/image';
-import { FaSearch, FaUser, FaBars, FaChevronDown, FaTimes } from 'react-icons/fa';
+import Link from 'next/link';
+import { FaUser, FaBars} from 'react-icons/fa';
 import { useRouter } from 'next/router';
 
-import parseSearchQuery from '../../lib/parserSearchQuery';
+import SearchBar from './SearchBar';
 import MobileMenu from './MobileMenu';
+import DropDown from './DropDown';
+
+//Contenido de los dropdowns tanto links como titulos
+const Inmuebles = {
+  title:"Inmuebles", pages:[
+    {name:"Todos los inmuebles", link:"/properties"},
+    {name:"Casas", link:"/properties?type=2"},
+    {name:"Apartamentos", link:"/properties?type=1"},
+    {name:"Locales", link:"/properties?type=4"},
+  ]
+};
+
+const SobreNosotros = {
+  title:"Quienes somos", pages:[
+    {name:"Historia", link:"/aboutus"},
+    {name:"Equipo", link:"/aboutus"},
+    {name:"Valores", link:"/aboutus"},
+  ]
+};
+
+const Contactanos = {
+  title:"Contactanos", pages:[
+    {name:"Formulario", link:"/form"},
+    {name:"Ubicación", link:"/location"},
+  ]
+};
+
+const Servicios = {
+  title:"Servicios", pages:[
+    {name:"Administración", link:"#"},
+    {name:"Avalúos", link:"#"},
+    {name:"Consultoria", link:"#"},
+  ]
+};
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [desktopMenuOpen, setDesktopMenuOpen] = useState(false);
-  const desktopMenuRef = useRef(null);
   const router = useRouter();
-  const [searchQuery, setSearchQuery] = useState('');
-  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState('');
-  const [bizType, setBizType] = useState(''); // Estado para el tipo de negocio
   const isHome = router.pathname === '/';
 
-  // Cerrar el menú desplegable al hacer click fuera
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (desktopMenuRef.current && !desktopMenuRef.current.contains(event.target)) {
-        setDesktopMenuOpen(false);
-      }
-    }
-    if (desktopMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    } else {
-      document.removeEventListener('mousedown', handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [desktopMenuOpen]);
-
-  // Implementar debounce para la búsqueda
-  useEffect(() => {
-    // No hacer nada si el texto está vacío
-    if (!searchQuery.trim()) return;
-
-    // Configurar un temporizador para actualizar la búsqueda después de 500ms
-    const timer = setTimeout(() => {
-      setDebouncedSearchQuery(searchQuery);
-    }, 500);
-
-    // Limpiar el temporizador si el texto cambia antes de que expire
-    return () => clearTimeout(timer);
-  }, [searchQuery]);
-
-  // Ejecutar la búsqueda cuando el valor debounced cambia
-  useEffect(() => {
-  if (!debouncedSearchQuery.trim()) return;
-
-  const fetchParsedQuery = async () => {
-    try {
-      const result = await parseSearchQuery(debouncedSearchQuery);
-
-      const query = new URLSearchParams();
-
-      if (result.q) query.set('q', result.q);
-      if (result.location) query.set('location', result.location);
-      if (result.neighborhood) query.set('neighborhood', result.neighborhood);
-      if (result.propertyType) query.set('type', result.propertyType);
-      if (result.bizType) query.set('biz', result.bizType);
-      if (result.bedrooms) query.set('bedrooms', result.bedrooms);
-      if (result.bathrooms) query.set('bathrooms', result.bathrooms);
-      if (result.minPrice) query.set('minPrice', result.minPrice);
-      if (result.maxPrice) query.set('maxPrice', result.maxPrice);
-
-
-
-      const currentPath = router.asPath;
-      const newPath = `/properties?${query.toString()}`;
-
-      if (currentPath !== newPath) {
-        router.push(newPath);
-      }
-    } catch (error) {
-      console.error("Error interpretando búsqueda:", error);
-    }
-  };
-
-  fetchParsedQuery();
-}, [debouncedSearchQuery]);
-
-  // Manejar cambios en el input
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
-  // Manejar cambios en el tipo de negocio
-  const handleBizTypeChange = (e) => {
-    setBizType(e.target.value);
-
-    // Si ya hay una búsqueda activa, actualizar resultados inmediatamente
-    if (searchQuery.trim()) {
-      const query = new URLSearchParams();
-      query.set('q', searchQuery);
-
-      if (e.target.value) {
-        query.set('biz', e.target.value);
-      }
-
-      router.push(`/properties?${query.toString()}`);
-    }
-  };
-
-  // Mantener el handler del formulario para casos donde el usuario presiona Enter
-  const handleQuickSearch = async (e) => {
-    e.preventDefault();
-    if (!searchQuery.trim()) return;
-
-    try {
-      // 🧠 Interpretar la frase del usuario usando tu parser
-      const result = await parseSearchQuery(searchQuery);
-
-      // 🧩 Crear los parámetros usando las mismas claves del parser
-      const query = new URLSearchParams();
-
-      if (result.q) query.set('q', result.q);
-      if (result.location) query.set('location', result.location);
-      if (result.neighborhood) query.set('neighborhood', result.neighborhood);
-      if (result.propertyType) query.set('type', result.propertyType);
-      if (result.bizType) query.set('biz', result.bizType);
-      if (result.bedrooms) query.set('bedrooms', result.bedrooms);
-      if (result.bathrooms) query.set('bathrooms', result.bathrooms);
-      if (result.minPrice) query.set('minPrice', result.minPrice);
-      if (result.maxPrice) query.set('maxPrice', result.maxPrice);
-
-      // 🚀 Redirigir a la página de resultados
-      router.push(`/properties?${query.toString()}`);
-    } catch (error) {
-      console.error("Error interpretando búsqueda:", error);
-    }
-  };
-
-  const handlePropertiesClick = (e) => {
-    if (router.pathname === '/properties') {
-      e.preventDefault();
-      // Redirigir a la ruta base de properties sin parámetros
-      router.push('/properties', undefined, { shallow: false });
-    }
-  };
-
   const handleToggleMenu = () => {
-    console.log('Toggling Menu');  // For debug
     setMobileMenuOpen(prev => !prev);
   };
-
-  // Al inicio del componente
-  const showSearch = router.pathname !== '/';
 
   return (
     <header
@@ -156,7 +56,7 @@ export default function Header() {
     >
       <div className="container-custom py-4 flex items-center justify-between ">
         {/* Logo */}
-        <a href="/" className="flex items-center min-w-[160px]">
+        <Link href="/" className="flex items-center min-w-[160px]">
           <div className="relative h-12 w-30 rounded-xl bg-white/70 p-1 transition">
             <Image
               src="/images/LOGO_BLACK.webp"
@@ -165,53 +65,17 @@ export default function Header() {
               priority
             />
           </div>
-        </a>
+        </Link>
         {/* Menu */}
         <nav className="hidden lg:flex justify-center gap-8">
           {/* Inmuebles Dropdown */}
-          <div className="relative group">
-            <button className="flex items-center gap-1 text-black font-medium text-base focus:outline-hidden group-focus-within:text-primary  transition-colors">
-              Inmuebles <FaChevronDown className="ml-1 text-xs" />
-            </button>
-            <div className="absolute left-0 mt-2 w-48 bg-white rounded-sm shadow-lg opacity-0  group-focus-within:opacity-100 lg-group-hover:opacity-100 group-focus-within:visible lg:group-hover:visible  invisible transition-all z-20">
-              <a href="/properties" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Todos los inmuebles</a>
-              <a href="/properties?type=2" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Casas</a>
-              <a href="/properties?type=1" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Apartamentos</a>
-              <a href="/properties?type=4" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Locales</a>
-            </div>
-          </div>
+          <DropDown content= {Inmuebles}/>
           {/* Quienes somos Dropdown */}
-          <div className="relative group">
-            <button className="flex items-center gap-1 text-black font-medium text-base focus:outline-hidden group-focus-within:text-primary transition-colors">
-              Quiénes somos <FaChevronDown className="ml-1 text-xs" />
-            </button>
-            <div className="absolute left-0 mt-2 w-48 bg-white rounded-sm shadow-lg opacity-0 group-focus-within:opacity-100 lg-group-hover:opacity-100 group-focus-within:visible lg:group-hover:visible invisible transition-all z-20">
-              <a href="/aboutus" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Historia</a>
-              <a href="/aboutus" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Equipo</a>
-              <a href="/aboutus" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Valores</a>
-            </div>
-          </div>
+          <DropDown content={SobreNosotros}/>
           {/* Contactanos Dropdown */}
-          <div className="relative group">
-            <button className="flex items-center gap-1 text-black font-medium text-base focus:outline-hidden group-focus-within:text-primary transition-colors">
-              Contáctanos <FaChevronDown className="ml-1 text-xs" />
-            </button>
-            <div className="absolute left-0 mt-2 w-48 bg-white rounded-sm shadow-lg opacity-0 group-focus-within:opacity-100 lg-group-hover:opacity-100 group-focus-within:visible lg:group-hover:visible invisible transition-all z-20">
-              <a href="/form" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Formulario</a>
-              <a href="/location" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Ubicación</a>
-            </div>
-          </div>
+          <DropDown content={Contactanos}/>
           {/* Servicios Dropdown */}
-          <div className="relative group">
-            <button className="flex items-center gap-1 text-black font-medium text-base focus:outline-hidden group-focus-within:text-primary transition-colors">
-              Servicios <FaChevronDown className="ml-1 text-xs" />
-            </button>
-            <div className="absolute right-0 mt-2 w-48 bg-white rounded-sm shadow-lg opacity-0 group-focus-within:opacity-100 lg-group-hover:opacity-100 group-focus-within:visible lg:group-hover:visible invisible transition-all z-20">
-              <a href="#" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Administración</a>
-              <a href="#" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Avalúos</a>
-              <a href="#" className="block px-4 py-2 text-sm text-gray-800 hover:bg-primary hover:text-white transition-colors">Consultoría</a>
-            </div>
-          </div>
+          <DropDown content={Servicios}/>
           <a href="#" className="flex items-center gap-2 text-black text-base font-medium"><FaUser className="text-lg" /> Login / Sign up</a>
         </nav>
         {/* Botones a la derecha */}
@@ -221,26 +85,13 @@ export default function Header() {
           </button>
         </div>
       </div>
+      {/* Menu para ambiente movil */}
       <div>
         <MobileMenu active={mobileMenuOpen} setActive={setMobileMenuOpen} />
       </div>
       {/* Search Bar para móvil y desktop - Solo visible en páginas que no son home */}
       {!isHome && (
-        <div className="container-custom py-2">
-          <form onSubmit={handleQuickSearch} className="flex w-full gap-2 max-w-xl mx-auto">
-            <input
-              type="text"
-              placeholder="Buscar por ciudad, barrio, código..."
-              className="border border-gray-300 rounded-full py-2 px-4 grow text-sm focus:outline-primary"
-              value={searchQuery}
-              onChange={handleSearchChange}
-              style={{ background: 'white', color: 'var(--color-dark)' }}
-            />
-            <button type="submit" className="rounded-full px-4 py-2 flex items-center justify-center bg-black text-white">
-              <FaSearch />
-            </button>
-          </form>
-        </div>
+        <SearchBar />
       )}
     </header>
   );

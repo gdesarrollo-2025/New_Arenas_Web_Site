@@ -64,7 +64,7 @@ export default function HistorySection() {
                         consolidan como una de las inmobiliarias líderes en la región Caribe.</p>
                 </div>
                 <div className="relative w-full lg:w-6/12 h-150 lg:h-full  ">
-                    <div className="absolute h-full w-full inset-shadow-md rounded-xl z-3 " />
+                    <div className="absolute h-full w-full inset-shadow-md  rounded-xl z-3 " />
                     <Swiper
                         modules={[Autoplay, Parallax]}
                         parallax={true}

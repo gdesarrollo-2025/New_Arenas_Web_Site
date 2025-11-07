@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
     // Recargar en montaje inicial 
     reloadCSS();
 
-    
+
   }, []);
 
   return (
@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }) {
 
       </div>
       {/* <!-- Start of HubSpot Embed Code --> */}
-      <Script id="hs-script-loader" strategy="afterInteractive" src="//js-na1.hs-scripts.com/8765689.js"/>
+      <Script id="hs-script-loader" strategy="afterInteractive" src="//js-na1.hs-scripts.com/8765689.js" />
       {/* <!-- End of HubSpot Embed Code --> */}
     </>
   );
