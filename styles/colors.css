@@ -1,9 +1,10 @@
 /* ARCHIVO DE COLORES - EDITA AQUÍ PARA CAMBIOS EN TIEMPO REAL */
 
 :root {
-  --color-primary: #702571; 
-  --color-secondary: #c245c5; 
-  --color-accent: #f59e0b; 
+  --color-primary: #1A3643; 
+  --color-secondary: #54595F;
+  --color-accent: #93B174;
+  --color-text: #383B3F; 
   --color-dark: #000000;
   --color-light: #f3f4f6;
 }
