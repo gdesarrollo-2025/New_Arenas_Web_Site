@@ -8,8 +8,8 @@ function ListItem({ content }) {
     <div className="flex flex-col gap-2">
       <p className="text-lg font-bold">{content.title}</p>
       <ul>
-        {content.pages.map((p) => (
-          <li className="pl-2">
+        {content.pages.map((p, index) => (
+          <li key={index} className="pl-2">
             <Link href={p.url} className="text-sm text-white hover:text-accent active:text-accent/80 ">{p.title}</Link>
           </li>
         ))}
@@ -53,7 +53,7 @@ export default function Footer() {
   return (
     <footer className="bg-primary text-white py-10">
       <div className="flex flex-col gap-6 container-custom">
-        <div><Image src="images/Arenas_logo.webp" height={100} width={200} /></div>
+        <div><Image src="images/Arenas_logo.webp" height={100} width={200} alt={"logo en blanco grupo arenas"}/></div>
         <div className="flex flex-col md:flex-row gap-4 justify-between">
           <ListItem content={inmuebles} />
           <ListItem content={Nosotros} />

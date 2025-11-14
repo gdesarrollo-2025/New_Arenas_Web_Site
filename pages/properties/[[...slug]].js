@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { getProperties } from '../../lib/api';
 import PropertyList from '../../components/properties/PropertyList';
 import FilterSidebar from '../../components/filters/FilterSidebar';
+import {urlToQuery} from '../../lib/parserSearchQuery';
 
 export default function Properties({ initialProperties, initialPagination, initialFilters, fetchError }) {
   const router = useRouter();
@@ -69,6 +70,9 @@ export default function Properties({ initialProperties, initialPagination, initi
 // getServerSideProps queda igual que tu versión robusta anterior (valida y normaliza query)
 export async function getServerSideProps(context) {
   const { query } = context;
+  console.log(query.slug)
+  
+  const result = await urlToQuery(query.slug);
 
   const page = query.page || 1;
 

@@ -2,63 +2,13 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { FaSearch } from 'react-icons/fa';
 
-import parseSearchQuery from '../../lib/parserSearchQuery';
+import {phraseToUrl} from '../../lib/parserSearchQuery';
 
 
 export default function SearchBar() {
     const router = useRouter();
     const [searchQuery, setSearchQuery] = useState('');
 
-    /*     // Implementar debounce para la búsqueda
-    useEffect(() => {
-        // No hacer nada si el texto está vacío
-        if (!searchQuery.trim()) return;
-
-        // Configurar un temporizador para actualizar la búsqueda después de 500ms
-        const timer = setTimeout(() => {
-            setDebouncedSearchQuery(searchQuery);
-        }, 500);
-
-        // Limpiar el temporizador si el texto cambia antes de que expire
-        return () => clearTimeout(timer);
-    }, [searchQuery]);
-
-    // Ejecutar la búsqueda cuando el valor debounced cambia
-    useEffect(() => {
-        if (!debouncedSearchQuery.trim()) return;
-
-        const fetchParsedQuery = async () => {
-            try {
-                const result = await parseSearchQuery(debouncedSearchQuery);
-
-                const query = new URLSearchParams();
-
-                if (result.q) query.set('q', result.q);
-                if (result.location) query.set('location', result.location);
-                if (result.neighborhood) query.set('neighborhood', result.neighborhood);
-                if (result.propertyType) query.set('type', result.propertyType);
-                if (result.bizType) query.set('biz', result.bizType);
-                if (result.bedrooms) query.set('bedrooms', result.bedrooms);
-                if (result.bathrooms) query.set('bathrooms', result.bathrooms);
-                if (result.minPrice) query.set('minPrice', result.minPrice);
-                if (result.maxPrice) query.set('maxPrice', result.maxPrice);
-
-
-
-                const currentPath = router.asPath;
-                const newPath = `/properties?${query.toString()}`;
-
-                if (currentPath !== newPath) {
-                    router.push(newPath);
-                }
-            } catch (error) {
-                console.error("Error interpretando búsqueda:", error);
-            }
-        };
-
-        fetchParsedQuery();
-    }, [debouncedSearchQuery]); */
-    
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
     }
@@ -69,23 +19,10 @@ export default function SearchBar() {
 
         try {
             // 🧠 Interpretar la frase del usuario usando tu parser
-            const result = await parseSearchQuery(searchQuery);
-
-            // 🧩 Crear los parámetros usando las mismas claves del parser
-            const query = new URLSearchParams();
-
-            if (result.q) query.set('q', result.q);
-            if (result.location) query.set('location', result.location);
-            if (result.neighborhood) query.set('neighborhood', result.neighborhood);
-            if (result.propertyType) query.set('type', result.propertyType);
-            if (result.bizType) query.set('biz', result.bizType);
-            if (result.bedrooms) query.set('bedrooms', result.bedrooms);
-            if (result.bathrooms) query.set('bathrooms', result.bathrooms);
-            if (result.minPrice) query.set('minPrice', result.minPrice);
-            if (result.maxPrice) query.set('maxPrice', result.maxPrice);
+            const result = await phraseToUrl(searchQuery);
 
             // 🚀 Redirigir a la página de resultados
-            router.push(`/properties?${query.toString()}`);
+            router.push(result);
         } catch (error) {
             console.error("Error interpretando búsqueda:", error);
         }

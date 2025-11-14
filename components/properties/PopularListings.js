@@ -17,7 +17,7 @@ export default function PopularListings() {
       }
       const data = await response.json();
       console.log(data.data);
-      
+
       if (data.data && Array.isArray(data.data)) {
         return data.data.map(property => ({
           id: property.codpro,
@@ -106,29 +106,28 @@ export default function PopularListings() {
           {listings.map(listing => (
             <div key={listing.id} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
               <Link href={`/properties/${listing.id}`}>
-              <div className=" relative w-full h-48 object-cover hover:opacity-90 transition-opacity">
-                <Image
-                  src={listing.img} 
-                  alt={listing.title} 
-                  className="object-cover"
-                  fill
-                />
-              </div>
-              </Link>
-              <div className="p-4 flex-1 flex flex-col">
-                <Link href={`/properties/${listing.id}`}>
+                <div className=" relative w-full h-48 object-cover hover:opacity-90 transition-opacity">
+                  <Image
+                    src={listing.img}
+                    alt={listing.title}
+                    className="object-cover"
+                    fill
+                  />
+                </div>
+                <div className="p-4 flex-1 flex flex-col">
                   <h3 className="text-lg font-bold text-gray-800 mb-1 hover:text-primary transition-colors">
                     {listing.title}
                   </h3>
-                </Link>
-                <p className="text-gray-500 text-sm mb-2">{listing.location}</p>
-                <div className="flex gap-4 text-gray-500 text-xs mb-2">
-                  <span>{listing.beds} Habitaciones</span>
-                  <span>{listing.baths} Baños</span>
-                  <span>{listing.area} m²</span>
+
+                  <p className="text-gray-500 text-sm mb-2">{listing.location}</p>
+                  <div className="flex gap-4 text-gray-500 text-xs mb-2">
+                    <span>{listing.beds} Habitaciones</span>
+                    <span>{listing.baths} Baños</span>
+                    <span>{listing.area} m²</span>
+                  </div>
+                  <div className="mt-auto font-semibold text-black">{listing.price}</div>
                 </div>
-                <div className="mt-auto font-semibold text-black">{listing.price}</div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>
