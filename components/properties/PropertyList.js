@@ -122,7 +122,7 @@ export default function PropertyList({ properties = [], pagination = {}, loading
               key={p.idpro || p.id}
               property={{
                 id: p.idpro || p.id,
-                title: `${getPropertyTypeName(p.type_code)} en ${p.city_zone || p.zone || p.city}`,
+                title: `${getPropertyTypeName(p.type_code)} en ${p.neighborhood || p.zone || p.city}`,
                 codpro: p.codpro,
                 price: formatPrice(p),
                 location: `${p.neighborhood || ''}, ${p.city || ''}`,

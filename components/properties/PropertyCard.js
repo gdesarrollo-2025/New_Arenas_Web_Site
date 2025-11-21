@@ -41,7 +41,7 @@ export default function PropertyCard({ property, loading = false }) {
       <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
         {/* Property Image */}
         <div className="relative h-48">
-          <a href={`/properties/${property.codpro}`}>
+          <a href={`/properties/property/${property.codpro}`}>
             <div className="relative w-full h-full">
               {!imageLoaded && (
                 <div className="absolute inset-0 bg-gray-300 animate-pulse"></div>
@@ -90,7 +90,7 @@ export default function PropertyCard({ property, loading = false }) {
         <div className="p-4">
           <div className="flex justify-between items-start mb-2">
             <h3 className="text-lg font-semibold truncate">
-              <Link prefetch={false} href={`/properties/${property.id}`} className="hover:text-primary transition-colors">
+              <Link prefetch={false} href={`/properties/property/${property.id}`} className="hover:text-primary transition-colors">
                 {property.title}
               </Link>
             </h3>

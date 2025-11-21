@@ -11,9 +11,9 @@ export default function MobileMenu({ active, setActive }) {
   const buttons = [{
     name: "Inmuebles",
     links: [{ title: "Todos los inmuebles", href: "/properties" },
-    { title: "Casa", href: "/properties?type=2" },
-    { title: "Apartamentos", href: "/properties?type=1" },
-    { title: "Locales", href: "/properties?type=3" },
+    { title: "Casa", href: "/properties/casa" },
+    { title: "Apartamentos", href: "/properties/apartamento" },
+    { title: "Locales", href: "/properties/local" },
     ]
   },
   {

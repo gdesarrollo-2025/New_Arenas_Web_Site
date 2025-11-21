@@ -36,7 +36,7 @@ export default function Properties({ initialProperties, initialPagination, initi
   };
 
   const handleOpenProperty = (codpro) => {
-    router.push(`/properties/${codpro}`);
+    router.push(`/properties/property/${codpro}`);
   };
 
   return (
@@ -69,10 +69,20 @@ export default function Properties({ initialProperties, initialPagination, initi
 
 // getServerSideProps queda igual que tu versión robusta anterior (valida y normaliza query)
 export async function getServerSideProps(context) {
+
+  //obtiene el query y el slug
   const { query } = context;
+  const slug = query?.slug || [];
+
+  //transforma el slug en query
   console.log(query.slug)
   
-  const result = await urlToQuery(query.slug);
+  const result = await urlToQuery(slug?.join(" "));
+
+  const location = result.location;
+  const neighborhood = result.neighborhood;
+  const propertyType = result.propertyType;
+  const bizType = result.bizType;
 
   const page = query.page || 1;
 
@@ -80,10 +90,10 @@ export async function getServerSideProps(context) {
 
   const filters = {
     query: query.q || '',
-    location: query.location || '',
-    neighborhood_code: query.neighborhood || '',
-    propertyType: query.type ? query.type.split(',') : [],
-    bizType: query.biz || '',
+    location: location,
+    neighborhood_code: neighborhood || '',
+    propertyType: propertyType,
+    bizType: bizType,
     sortBy: sortBy,
     // Manejar precios según tipo de negocio
     minPrice: query.pvmin || query.pcmin || query.minPrice || '',
@@ -106,7 +116,7 @@ export async function getServerSideProps(context) {
     // Amenities
     amenities: query.amenities ? query.amenities.split(',') : [],
   };
-
+  console.log(filters)
   try {
     // Pide a la API ya paginada y filtrada si es posible
     const results = await getProperties(filters, page);

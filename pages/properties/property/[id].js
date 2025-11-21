@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import PropertyDetail from '../../components/properties/PropertyDetail';
-import RelatedProperties from '../../components/properties/RelatedProperties';
+import PropertyDetail from '../../../components/properties/PropertyDetail';
+import RelatedProperties from '../../../components/properties/RelatedProperties';
 
 export default function PropertyPage() {
   const router = useRouter();

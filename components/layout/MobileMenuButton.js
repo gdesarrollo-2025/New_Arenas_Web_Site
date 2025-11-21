@@ -6,7 +6,7 @@ export default function MobileMenuButton({ name, links }) {
     const toggle = () => setOpen((prev) => !prev);
 
     return (
-        <div className="w-full text-center border-1 ">
+        <div className="w-full text-center border ">
             <button
                 name={name}
                 onClick={toggle}

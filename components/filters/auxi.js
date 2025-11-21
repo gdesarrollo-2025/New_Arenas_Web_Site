@@ -252,6 +252,7 @@ export default function FilterSidebar({ initialFilters, onChangeFilters}) {
 
   const FilterContent = () => (
     <>
+        {/* dropdow de properties */}
       <div className="mb-6">
         <div 
           className="flex justify-between items-center cursor-pointer" 
@@ -263,7 +264,7 @@ export default function FilterSidebar({ initialFilters, onChangeFilters}) {
             <FaChevronRight className="text-gray-600" />
           }
         </div>
-        
+        {/* properties */}
         {propertyTypesExpanded && (
           loading ? (
             <div className="animate-pulse space-y-2">
@@ -291,7 +292,7 @@ export default function FilterSidebar({ initialFilters, onChangeFilters}) {
           )
         )}
       </div>
-
+      {/* dropdown arriendos */}
       <div className="mb-6">
         <h3 className="font-semibold text-lg mb-2">Tipo de Negocio</h3>
         <div className="space-x-2">
@@ -308,7 +309,7 @@ export default function FilterSidebar({ initialFilters, onChangeFilters}) {
           </select>
         </div>
       </div>
-
+      {/* Precio maximo y minimo */}
       <div className="mb-6">
         <h3 className="font-semibold text-lg mb-2">Rango de Precio</h3>
         <div className="flex justify-between items-center gap-2">
@@ -345,7 +346,7 @@ export default function FilterSidebar({ initialFilters, onChangeFilters}) {
           </div>
         </div>
       </div>
-
+      
       <div className="mb-6">
         <h3 className="font-semibold text-lg mb-2">Área (m²)</h3>
         <div className="grid grid-cols-2 gap-2">

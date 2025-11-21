@@ -11,10 +11,10 @@ import DropDown from './DropDown';
 //Contenido de los dropdowns tanto links como titulos
 const Inmuebles = {
   title:"Inmuebles", pages:[
-    {name:"Todos los inmuebles", link:"/properties"},
-    {name:"Casas", link:"/properties?type=2"},
-    {name:"Apartamentos", link:"/properties?type=1"},
-    {name:"Locales", link:"/properties?type=4"},
+    {name:"Todos los inmuebles", link:"/properties?"},
+    {name:"Casas", link:"/properties/casa"},
+    {name:"Apartamentos", link:"/properties/apartamento"},
+    {name:"Locales", link:"/properties/local"},
   ]
 };
 
@@ -56,7 +56,7 @@ export default function Header() {
     >
       <div className="container-custom py-4 flex items-center justify-between ">
         {/* Logo */}
-        <Link href="/" className="flex items-center min-w-[160px]">
+        <Link href="/" className="flex items-center min-w-40">
           <div className="relative h-12 w-30 rounded-xl bg-white/70 p-1 transition">
             <Image
               src="/images/LOGO_BLACK.webp"
@@ -79,7 +79,7 @@ export default function Header() {
           <a href="#" className="flex items-center gap-2 text-black text-base font-medium"><FaUser className="text-lg" /> Login / Sign up</a>
         </nav>
         {/* Botones a la derecha */}
-        <div className=" block lg:hidden flex items-center gap-4 ml-4">
+        <div className="lg:hidden flex items-center gap-4 ml-4">
           <button onClick={handleToggleMenu} className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-black hover:bg-gray-100 transition">
             <FaBars className="text-xl" />
           </button>
