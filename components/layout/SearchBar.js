@@ -29,8 +29,8 @@ export default function SearchBar() {
     };
 
     return (
-        <div className="container-custom py-2">
-            <form onSubmit={handleQuickSearch} className="flex w-full gap-2 max-w-xl mx-auto">
+        <div className="py-2 ">
+            <form onSubmit={handleQuickSearch} className="flex w-full gap-2 max-w-2xl mx-auto ">
                 <input
                     type="text"
                     placeholder="Buscar por ciudad, barrio, código..."

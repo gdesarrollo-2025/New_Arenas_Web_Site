@@ -24,7 +24,6 @@ export default function Home() {
       <main className="bg-[#f8f9fa]">
         <HeroSection />
         <QuickServices/>
-        <TrustedCompanies />
         <PopularListings />
         <InvestmentSection/>
         <PromoBanner/>

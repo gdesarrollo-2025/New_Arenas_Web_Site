@@ -52,7 +52,7 @@ export default function HeroSearch() {
   }
 
   return (
-    <div className="w-full  max-w-md mt-8 md:mt-0 md:ml-8">
+    <div className="w-full  max-w-xl lg:max-w-md mt-8 lg:mt-0 lg:ml-8">
       <form className="bg-white rounded-2xl shadow-xl p-6 flex flex-col gap-4">
         <h2 className="text-lg font-semibold text-gray-900 mb-2">Encuentra tu inmueble<br />de tus sueños</h2>
         {/* Location */}

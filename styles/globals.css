@@ -135,4 +135,32 @@
 
 @theme {
   --inset-shadow-md: inset 0px 0px 22px 20px rgba(0, 0, 0, 0.5);
+  --animate-blink: blink .7s infinite;
+  --text-shadow: -1px -1px 5px #C55BB0,
+                0px -1px 5px #C55BB0,
+                1px -1px 5px #C55BB0,
+                -1px 0px 5px #C55BB0,
+                0px 0px 5px #C55BB0,
+                1px 0px 5px #C55BB0,
+                -1px 1px 5px #C55BB0,
+                0px 1px 5px #C55BB0,
+                1px 1px 5px #C55BB0;
+
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+
+    49% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
 }

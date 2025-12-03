@@ -5,12 +5,12 @@ const cities = [
   { 
     name: 'Barranquilla', 
     img: '/images/BarranquillaFoto.webp', 
-    link: '/properties?q=Barranquilla'
+    link: '/properties/Barranquilla'
   },
   { 
     name: 'Cartagena', 
     img: '/images/CartagenaFoto.webp', 
-    link: '/properties?q=Cartagena'
+    link: '/properties/Cartagena'
   },
 ];
 

@@ -25,7 +25,7 @@ export default function HQMainSwiper({ array, controller }) {
             {array.map((hq, index) => (
                 <SwiperSlide key={index} className="no-swipping w-full h-full flex items-center content-center ">
                     <Image src={hq.src} alt={`Sede ${hq.title}`} fill priority={index === 0}  sizes="100vw" className="object-cover mix-blend-multiply" />
-                    <div className={`w-full h-full relative bg-primary mix-blend-multiply`}/>
+                    <div className={`w-full h-full relative bg-primary/70`}/>
                 </SwiperSlide>
             ))}
         </Swiper>

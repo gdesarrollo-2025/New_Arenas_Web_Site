@@ -76,10 +76,6 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
           <div><p>Copyright © 2025 Arenas Inmobiliaria</p></div>
           <div><p>Politica de privacidad 2025</p></div>
-          <div>
-            <p>Sitio diseñado por Emerson Ojito</p>
-            <p>Sitio desarrollado por Carlos Mendoza</p>
-          </div>
         </div>
         <div>
           <p className="text-xs text-justify">Las imágenes publicadas, planos, renders y demás piezas publicitarias son simples
