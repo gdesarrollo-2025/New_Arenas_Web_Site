@@ -12,7 +12,7 @@ const services = [
 
 export default function QuickServices() {
   return (
-    <section className="bg-white px-5">
+    <section className="bg-white px-5  py-10 ">
       <div className="container-custom h-64">
         <Swiper
           modules={[Navigation, Autoplay]}

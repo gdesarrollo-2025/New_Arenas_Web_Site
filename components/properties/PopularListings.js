@@ -2,21 +2,31 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function PopularListings() {
+const Cities = [
+  {
+    code: 8001,
+    name: 'Barranquilla'
+  },
+  {
+    code: 13001,
+    name: 'Cartagena'
+  }
+]
+export default function PopularListings({cityname}) {
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(true);
 
   // Función para obtener propiedades por ciudad y página aleatoria
-  const fetchPropertiesByCity = async (cityCode) => {
+  const fetchPropertiesByCity = async () => {
     try {
       // Generar un número aleatorio entre 5 y 10
       const randomPage = Math.floor(Math.random() * 6) + 5;
+      const cityCode = Cities.find((c) => c.name === cityname)?.code;
       const response = await fetch(`/api/properties?city=${cityCode}&perpage=6&page=${randomPage}`);
       if (!response.ok) {
         throw new Error('Error fetching properties');
       }
       const data = await response.json();
-      console.log(data.data);
 
       if (data.data && Array.isArray(data.data)) {
         return data.data.map(property => ({
@@ -42,7 +52,7 @@ export default function PopularListings() {
     const loadData = async () => {
       setLoading(true);
       try {
-        const properties = await fetchPropertiesByCity('8001');
+        const properties = await fetchPropertiesByCity();
         setListings(properties);
       } catch (error) {
         setListings([
@@ -55,7 +65,7 @@ export default function PopularListings() {
       }
     };
     loadData();
-  }, []);
+  }, [cityname]);
 
   if (loading) {
     return (
@@ -96,16 +106,16 @@ export default function PopularListings() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-            Propiedades en Barranquilla
+            Propiedades en {cityname}
           </h2>
-          <button className="text-sm font-semibold text-black border border-gray-300 rounded-sm px-4 py-2 hover:bg-gray-100">
+          <Link href={`/properties/${cityname}`}className="text-sm font-semibold text-black border border-gray-300 rounded-sm px-4 py-2 hover:bg-gray-100">
             Ver más
-          </button>
+          </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {listings.map(listing => (
             <div key={listing.id} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
-              <Link href={`/properties/${listing.id}`}>
+              <Link href={`/properties/property/${listing.id}`}>
                 <div className=" relative w-full h-48 object-cover hover:opacity-90 transition-opacity">
                   <Image
                     src={listing.img}
@@ -118,7 +128,6 @@ export default function PopularListings() {
                   <h3 className="text-lg font-bold text-gray-800 mb-1 hover:text-primary transition-colors">
                     {listing.title}
                   </h3>
-
                   <p className="text-gray-500 text-sm mb-2">{listing.location}</p>
                   <div className="flex gap-4 text-gray-500 text-xs mb-2">
                     <span>{listing.beds} Habitaciones</span>

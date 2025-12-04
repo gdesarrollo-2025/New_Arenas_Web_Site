@@ -11,6 +11,7 @@ import Testimonials from '../components/home/Testimonials';
 import OurAgents from '../components/home/OurAgents';
 import Newsletter from '../components/home/Newsletter';
 import Footer from '../components/layout/Footer';
+import FeaturedProjects from '../components/home/FeaturedProjects';
 
 export default function Home() {
   
@@ -24,7 +25,8 @@ export default function Home() {
       <main className="bg-[#f8f9fa]">
         <HeroSection />
         <QuickServices/>
-        <PopularListings />
+        {/* <TrustedCompanies /> */}
+        <FeaturedProjects/>
         <InvestmentSection/>
         <PromoBanner/>
         <PopularCities />
