@@ -1,10 +1,11 @@
 // pages/api/domus-types.js
+
 export default async function handler(req, res) {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/search/types`, {
+    const response = await fetch(`${process.env.DOMUS_API_URL}/search/types`, {
       method: 'GET',
       headers: {
-        'Authorization': process.env.NEXT_PUBLIC_DOMUS_API_TOKEN,
+        'Authorization': process.env.DOMUS_API_TOKEN,
         'Inmobiliaria': '1',
         'Content-Type': 'application/json',
       },

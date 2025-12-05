@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     const options = {
       method: 'GET',
       headers: {
-        'Authorization': process.env.NEXT_PUBLIC_DOMUS_API_TOKEN,
+        'Authorization': process.env.DOMUS_API_TOKEN,
         'Inmobiliaria': '1',
         'Perpage': perpage || '12', // Usar el parámetro perpage de la query o 12 por defecto
         'Content-Type': 'application/json',

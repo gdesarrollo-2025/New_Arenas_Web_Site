@@ -1,7 +1,7 @@
-import { useState} from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaUser, FaBars} from 'react-icons/fa';
+import { FaUser, FaBars } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 
 import SearchBar from './SearchBar';
@@ -10,34 +10,41 @@ import DropDown from './DropDown';
 
 //Contenido de los dropdowns tanto links como titulos
 const Inmuebles = {
-  title:"Inmuebles", pages:[
-    {name:"Todos los inmuebles", link:"/properties?"},
-    {name:"Casas", link:"/properties/casa"},
-    {name:"Apartamentos", link:"/properties/apartamento"},
-    {name:"Locales", link:"/properties/local"},
+  title: "Inmuebles", pages: [
+    { name: "Encuentra tu inmueble", link: "/properties?" },
+    { name: "Comercio e industria", link: "/properties/local" },
+    { name: "Inversionista", link: "/properties/lote" },
+    { name: "Exclusivos", link: "https://arenasinmobiliaria.co/exclusivos/" },
   ]
 };
 
 const SobreNosotros = {
-  title:"Quienes somos", pages:[
-    {name:"Historia", link:"/aboutus"},
-    {name:"Equipo", link:"/aboutus"},
-    {name:"Valores", link:"/aboutus"},
+  title: "Quienes somos", pages: [
+    { name: "Sobre Nosotros", link: "/aboutus" },
+    { name: "Nuestros asesores", link: "/aboutus" },
   ]
 };
 
+const Clientes = {
+  title: "Clientes", pages: [
+    { name: "Propietarios", link: "/owners" },
+    { name: "Arrendatarios", link: "/tenants" },
+    { name: "Consigna tu inmueble", link: "/#" }
+  ]
+}
+
 const Contactanos = {
-  title:"Contactanos", pages:[
-    {name:"Formulario", link:"/form"},
-    {name:"Ubicación", link:"/location"},
+  title: "Información", pages: [
+    { name: "Nuestras sedes", link: "/location" },
+    { name: "Contactanos", link: "/#" },
   ]
 };
 
 const Servicios = {
-  title:"Servicios", pages:[
-    {name:"Administración", link:"#"},
-    {name:"Avalúos", link:"#"},
-    {name:"Consultoria", link:"#"},
+  title: "Servicios", pages: [
+    { name: "Administración", link: "#" },
+    { name: "Avalúos", link: "#" },
+    { name: "Consultoria", link: "#" },
   ]
 };
 
@@ -51,9 +58,7 @@ export default function Header() {
   };
 
   return (
-    <header
-      className="relative bg-white border-b border-gray-100 shadow-xs w-full"
-    >
+    <header className="relative bg-white border-b border-gray-100 shadow-xs w-full">
       <div className="container-custom py-4 flex items-center justify-between ">
         {/* Logo */}
         <Link href="/" className="flex items-center min-w-40">
@@ -69,13 +74,15 @@ export default function Header() {
         {/* Menu */}
         <nav className="hidden lg:flex justify-center gap-8">
           {/* Inmuebles Dropdown */}
-          <DropDown content= {Inmuebles}/>
+          <DropDown content={Inmuebles} />
           {/* Quienes somos Dropdown */}
-          <DropDown content={SobreNosotros}/>
+          <DropDown content={SobreNosotros} />
+          {/* Clientes Dropdown*/}
+          <DropDown content={Clientes} />
           {/* Contactanos Dropdown */}
-          <DropDown content={Contactanos}/>
+          <DropDown content={Contactanos} />
           {/* Servicios Dropdown */}
-          <DropDown content={Servicios}/>
+          <DropDown content={Servicios} />
           <a href="#" className="flex items-center gap-2 text-black text-base font-medium"><FaUser className="text-lg" /> Login / Sign up</a>
         </nav>
         {/* Botones a la derecha */}

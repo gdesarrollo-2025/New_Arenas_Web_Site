@@ -73,7 +73,7 @@ export default function PopularListings({cityname}) {
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              Propiedades en Barranquilla
+              Propiedades en {cityname}
             </h2>
             <button className="text-sm font-semibold text-black border border-gray-300 rounded-sm px-4 py-2 hover:bg-gray-100">
               Ver más

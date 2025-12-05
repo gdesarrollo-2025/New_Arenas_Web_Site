@@ -10,23 +10,29 @@ export default function MobileMenu({ active, setActive }) {
 
   const buttons = [{
     name: "Inmuebles",
-    links: [{ title: "Todos los inmuebles", href: "/properties" },
-    { title: "Casa", href: "/properties/casa" },
-    { title: "Apartamentos", href: "/properties/apartamento" },
-    { title: "Locales", href: "/properties/local" },
+    links: [{ title: "Encuentra tu inmueble", href: "/properties" },
+    { title: "Comercio e industria", href: "/properties/local" },
+    { title: "Inversionista", href: "/properties/lote" },
+    { title: "Exclusivos", href: "https://arenasinmobiliaria.co/exclusivos/" },
     ]
   },
   {
     name: "Quienes somos",
-    links: [{ title: "Historia", href: "/aboutus" },
-    { title: "Equipo", href: "/aboutus" },
-    { title: "Valores", href: "/aboutus" },
+    links: [{ title: "Sobre nosotros", href: "/aboutus" },
+    { title: "Nuestros asesores", href: "/aboutus" },
     ]
   },
   {
-    name: "Contactanos",
-    links: [{ title: "Formulario", href: "/form" },
-    { title: "Ubicación", href: "/location" },
+    name: "Clientes",
+    links: [{ title: "Propietarios", href: "/owners" },
+    { title: "Arrendatario", href: "/tenants" },
+    { title: "Consigna tu inmueble", href: "#" }
+    ]
+  },
+  {
+    name: "Información",
+    links: [{ title: "Nuestras sedes", href: "/location" },
+    { title: "Contactanos", href: "/#" },
     ]
   },
   {
@@ -36,6 +42,7 @@ export default function MobileMenu({ active, setActive }) {
     { title: "Consultoria", href: "#" },
     ]
   },
+
   ]
   const toggleOptions = (e) => {
     const { name } = e.target;

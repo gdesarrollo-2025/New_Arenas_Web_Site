@@ -50,7 +50,7 @@ export default async function handler(req, res) {
     const options = {
       method: 'GET',
       headers: {
-        'Authorization': process.env.NEXT_PUBLIC_DOMUS_API_TOKEN,
+        'Authorization': process.env.DOMUS_API_TOKEN,
         'Inmobiliaria': '1',
         'Content-Type': 'application/json',
         'ficha': req.headers.ficha || '0',
