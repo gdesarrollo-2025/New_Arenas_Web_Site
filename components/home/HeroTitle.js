@@ -8,7 +8,6 @@ export default function HeroTitle() {
     "locales",
     "lotes",
     "oficinas",
-    "fincas"
   ]; // <- reemplaza esto con tu array dinámico si quieres
   const text= useTypewriter(words)
   return (

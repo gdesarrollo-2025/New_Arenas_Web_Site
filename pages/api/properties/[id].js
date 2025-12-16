@@ -18,7 +18,7 @@ async function fetchWithRetry(url, options, retries = MAX_RETRIES) {
     if (!response.ok) {
       throw new Error(`API responded with status: ${response.status}`);
     }
-
+    console.log(response)
     return response;
   } catch (error) {
     clearTimeout(timeoutId);
@@ -58,7 +58,6 @@ export default async function handler(req, res) {
     };
 
     const apiUrl = `https://api.domus.la/3.0/properties/${id}`;
-    
     console.log('Iniciando petición a Domus API:', {
       url: apiUrl,
       id,
@@ -67,8 +66,8 @@ export default async function handler(req, res) {
 
     // Realizar la solicitud a la API de Domus con reintentos
     const response = await fetchWithRetry(apiUrl, options);
+    console.log(response)
     const data = await response.json();
-    
     console.log('Respuesta recibida de Domus API:', {
       id,
       status: response.status,
