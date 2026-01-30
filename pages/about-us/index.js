@@ -4,6 +4,7 @@ import MisionSection from '../../components/aboutus/MisionSection';
 import VisionSection from "../../components/aboutus/VisionSection";
 import OurNumbersSection from "../../components/aboutus/OurNumbersSection";
 import Footer from '../../components/layout/Footer';
+import IdentitySection from '../../components/aboutus/IdentitySection';
 export default function AboutUs() {
     return (
         <>
@@ -13,10 +14,9 @@ export default function AboutUs() {
                 <link rel="icon" type="image/webp" href="/FAVICON.webp" />
                 
             </Head>
-            <div className="pt-6">
+            <div className="pt-36">
                 <HistorySection/>
-                <MisionSection/>
-                <VisionSection />
+                <IdentitySection/>
                 <OurNumbersSection/>
             </div>
             <Footer/>

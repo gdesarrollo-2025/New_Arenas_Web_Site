@@ -1,6 +1,4 @@
 @import 'tailwindcss';
-
-
 @config '../tailwind.config.js';
 
 /*
@@ -54,14 +52,7 @@
 @layer utilities {
 
   /* COLORES PERSONALIZADOS - EDITAR AQUÍ */
-  :root {
-    --color-primary: #1A3643;
-    --color-secondary: #54595F;
-    --color-accent: #93B174;
-    --color-text: #383B3F;
-    --color-dark: #000000;
-    --color-light: #f3f4f6;
-  }
+
 
   /* SOBRESCRITURA DIRECTA DE CLASES TAILWIND */
   .text-primary {
@@ -136,15 +127,15 @@
 @theme {
   --inset-shadow-md: inset 0px 0px 22px 20px rgba(0, 0, 0, 0.5);
   --animate-blink: blink .7s infinite;
-  --text-shadow: -1px -1px 5px #C55BB0,
-                0px -1px 5px #C55BB0,
-                1px -1px 5px #C55BB0,
-                -1px 0px 5px #C55BB0,
-                0px 0px 5px #C55BB0,
-                1px 0px 5px #C55BB0,
-                -1px 1px 5px #C55BB0,
-                0px 1px 5px #C55BB0,
-                1px 1px 5px #C55BB0;
+  --text-shadow: -1px -1px 5px var(--color-primary),
+                0px -1px 5px var(--color-primary),
+                1px -1px 5px var(--color-primary),
+                -1px 0px 5px var(--color-primary),
+                0px 0px 5px var(--color-primary),
+                1px 0px 5px var(--color-primary),
+                -1px 1px 5px var(--color-primary),
+                0px 1px 5px var(--color-primary),
+                1px 1px 5px var(--color-primary);
 
   @keyframes blink {
     0% {

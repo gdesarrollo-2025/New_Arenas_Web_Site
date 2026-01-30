@@ -11,7 +11,7 @@ import Testimonials from '../components/home/Testimonials';
 import OurAgents from '../components/home/OurAgents';
 import Newsletter from '../components/home/Newsletter';
 import Footer from '../components/layout/Footer';
-import FeaturedProjects from '../components/home/FeaturedProjects';
+import FeaturedProperties from '../components/home/FeaturedProperties';
 
 export default function Home() {
   
@@ -23,17 +23,18 @@ export default function Home() {
         <link rel="icon" type="image/webp" href="/FAVICON.webp" />
       </Head>
       <main className="bg-[#f8f9fa]">
-        <HeroSection />
+        <HeroSection/>
+        <FeaturedProperties/>
         <QuickServices/>
-        {/* <TrustedCompanies /> */}
-        <FeaturedProjects/>
         <InvestmentSection/>
-        <PromoBanner/>
-        <PopularCities />
-        {/* <FeaturedListing /> */}
+        <PopularCities/>
+        <TrustedCompanies/>
         <Testimonials />
         <OurAgents />
-       {/*  <Newsletter /> */}
+        
+        {/* 
+        <PromoBanner/>
+        <Newsletter />  */}
       </main>
       <Footer />
       

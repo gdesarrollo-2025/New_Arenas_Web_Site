@@ -12,7 +12,7 @@ export default function VisionSection() {
                         <h2 className="text-2xl font-medium">Te presentamos nuestra</h2>
                         <h1 className="text-4xl font-semibold text-primary">Vision</h1>
                     </div>
-                    <p className="text-lg px- text-justify justify-center">
+                    <p className="text-lg px- text-center justify-center">
                         GRUPO ARENAS S.A.S., será reconocida como la inmobiliaria líder en el sector de arriendo, ventas, administración y
                         promoción de proyectos de la costa Atlántica, a través del cumplimiento de los mejores estándares de desempeño, la
                         generación de valor en colaboradores y clientes y la sistematización de nuestros procesos para ser más eficiente y

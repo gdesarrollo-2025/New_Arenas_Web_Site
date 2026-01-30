@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+const tags = {
+  "venta": "bg-accent",
+  "arriendo": "bg-secondary"
+}
 const Cities = [
   {
     code: 8001,
@@ -12,7 +16,7 @@ const Cities = [
     name: 'Cartagena'
   }
 ]
-export default function PopularListings({cityname}) {
+export default function PopularListings({ cityname }) {
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -22,7 +26,7 @@ export default function PopularListings({cityname}) {
       // Generar un número aleatorio entre 5 y 10
       const randomPage = Math.floor(Math.random() * 6) + 5;
       const cityCode = Cities.find((c) => c.name === cityname)?.code;
-      const response = await fetch(`/api/properties?city=${cityCode}&perpage=6&page=${randomPage}`);
+      const response = await fetch(`/api/properties?city=${cityCode}${cityCode == 13001 ? "" : "&amenities=383"}&perpage=6&page=${randomPage}`);
       if (!response.ok) {
         throw new Error('Error fetching properties');
       }
@@ -31,6 +35,8 @@ export default function PopularListings({cityname}) {
       if (data.data && Array.isArray(data.data)) {
         return data.data.map(property => ({
           id: property.codpro,
+          type: property.type.toLowerCase(),
+          biz: property.biz.toLowerCase().split("/"),
           title: property.address_alt || property.address,
           price: property.price_format || `$${property.rent || property.saleprice}`,
           img: property.image1 ? property.image1 : '/images/property-placeholder.jpg',
@@ -108,7 +114,7 @@ export default function PopularListings({cityname}) {
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
             Propiedades en {cityname}
           </h2>
-          <Link href={`/properties/${cityname}`}className="text-sm font-semibold text-black border border-gray-300 rounded-sm px-4 py-2 hover:bg-gray-100">
+          <Link href={`/properties/${cityname}`} className="text-sm font-semibold text-black border border-gray-300 rounded-sm px-4 py-2 hover:bg-gray-100">
             Ver más
           </Link>
         </div>
@@ -123,6 +129,14 @@ export default function PopularListings({cityname}) {
                     className="object-cover"
                     fill
                   />
+                  <div className="absolute top-1 left-1 flex gap-1 ">
+                    {listing.biz.map( b => (
+                      <div className={`w-fit px-1 py-0.5 text-white font-medium rounded-[10px] ${tags[b]}`}>
+                        {String(b).charAt(0).toUpperCase() + b.slice(1)}
+                      </div>
+                    ))}
+                  </div>
+
                 </div>
                 <div className="p-4 flex-1 flex flex-col">
                   <h3 className="text-lg font-bold text-gray-800 mb-1 hover:text-primary transition-colors">

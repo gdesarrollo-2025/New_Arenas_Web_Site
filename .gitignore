@@ -42,3 +42,6 @@ next-env.d.ts
 
 # cache
 .cache/ 
+
+#Analysis of the project
+*.md

@@ -12,9 +12,10 @@ export default function PropertyPage() {
       <Head>
         <title>Property Details | Arenas Real Estate</title>
         <meta name="description" content="Detailed information about this property" />
+        <link rel="icon" type="image/webp" href="/FAVICON.webp" />
       </Head>
 
-      <div className="container-custom py-6">
+      <div className="container-custom py-36">
         {id && <PropertyDetail id={id} />}
         <RelatedProperties />
       </div>

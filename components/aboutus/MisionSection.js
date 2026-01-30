@@ -9,7 +9,7 @@ export default function MisionSection() {
                         <h2 className="text-2xl font-medium">Conoce nuestra </h2>
                         <h1 className="text-4xl font-semibold text-primary">Mision</h1>
                     </div>
-                    <div className="text-lg px- text-justify justify-center">
+                    <div className="text-lg px- text-center justify-center">
                         <p>Encaminamos nuestros esfuerzos a lograr un alto grado de satisfacción de
                             nuestros clientes internos y externos en la prestación de servicios de
                             nuestro portafolio inmobiliario especialmente en el de arriendo,

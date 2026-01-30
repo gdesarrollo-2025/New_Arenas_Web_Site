@@ -26,45 +26,45 @@ function ListDropdown({ }) {
 const inmuebles = {
   title: "Inmuebles", pages: [{
     title: "Encuentra tu inmueble", url: "#"},
-  { title: "Inversionista", url: "#" },
   { title: "Comercio e industria", url: "#" },
+  { title: "Inversionista", url: "#" },
   { title: "Exclusivos", url: "#" },
-  { title: "Proyectos inmobiliarios", url: "#" },
-  { title: "Consigna tu inmueble", url: "#" },
   ]
 }
 
 const Nosotros = {
   title: "Nosotros", pages: [
-    { title: "Somos Arenas", url: "#" },
-    { title: "Asesores inmobiliarios", url: "#" },
-    { title: "Trabaja con nosotros", url: "#" }]
+    { title: "Sobre nosotros", url: "#" },
+    { title: "Nuestros asesores", url: "#" },
+    { title: "Contactanos", url: "#" }]
 }
 
 const Portales = {
-  title: "Portales", pages: [
+  title: "Nuestros clientes", pages: [
     {title:"Propietarios", url:"#"},
     {title:"Arrendatarios", url:"#"},
-    {title:"Pagos PSE", url:"#"},
+    {title:"Consigna tu inmueble", url:"#"},
   ]
 }
 
+const Servicios = {
+  title:"Servicios", pages: [
+    {title:"Arriendo y Ventas", url:"#"},
+    {title:"Proyectos y Constructoras", url:"#"},
+    {title:"Marketing inmobiliario", url:"#"},
+    {title:"Perfilador de credito", url:"#"},
+  ]
+}
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white py-10">
+    <footer className="bg-secondary text-white py-10">
       <div className="flex flex-col gap-6 container-custom">
         <div><Image src="images/Arenas_logo.webp" height={100} width={200} alt={"logo en blanco grupo arenas"}/></div>
         <div className="flex flex-col md:flex-row gap-4 justify-between">
           <ListItem content={inmuebles} />
           <ListItem content={Nosotros} />
           <ListItem content={Portales}/>
-          <div>
-            <p>Contactanos</p>
-            <ul>
-              <li><Link href="#">Somos Arenas</Link></li>
-              <li><Link href="#">Somos Arenas</Link></li>
-            </ul>
-          </div>
+          <ListItem content={Servicios}/>
           <div>
             <p>Horarios de atencion</p>
             <ul>

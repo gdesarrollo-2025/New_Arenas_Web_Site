@@ -18,7 +18,7 @@ export default function SalesCard({ title, address, latitude, longitude }) {
     }, []);
 
     return (
-        <div className=" flex flex-col  items-center h-100 w-full p-3 rounded-lg shadow-md/50">
+        <div className=" flex flex-col  items-center h-100 w-full p-3 rounded-lg shadow-md/50 z-20">
             <h3 className="text-md font-semibold text-primary ">{title}</h3>
             <MapContainer
                 center={[lat, lng]}

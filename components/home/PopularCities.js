@@ -23,7 +23,7 @@ export default function PopularCities() {
   return (
     <section className="py-14 px-5">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-medium text-gray-900 mb-8 text-center text-pretty">estan son <strong>las ciudades mas populares</strong> para encontrar tu hogar</h2>
+        <h2 className="text-2xl md:text-3xl font-medium text-gray-900 mb-8 text-center text-pretty">estan son <strong className="text-accent">las ciudades mas populares</strong> para encontrar tu hogar</h2>
         <div className="flex flex-wrap justify-around">
           {cities.map((city, idx) => (
             <div   key={idx} onClick={() => {handleCityClick(city.name)}} className="relative flex flex-col items-center cursor-pointer transform hover:scale-105 transition-transform">

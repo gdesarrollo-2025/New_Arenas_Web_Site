@@ -1,42 +1,71 @@
 import { FaCreditCard, FaSignature, FaGlobe, FaSearchLocation, FaBuilding, FaIndustry } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay, EffectCoverflow } from 'swiper/modules';
+
 const services = [
-  { icon: <FaBuilding />, title: 'Proyectos', text: 'Conoce los proyectos en Barranquilla, Cartagena y Soledad' },
-  { icon: <FaCreditCard />, title: 'Pagos PSE', text: 'Realiza pagos desde la plataforma PSE desde la comodidad de tu casa' },
-  { icon: <FaSignature />, title: 'Firma digital', text: 'Ahora podras firmar contratos desde cualquier lugar' },
-  { icon: <FaGlobe />, title: 'Publicidad 360', text: 'Tenemos presencia en mas de 10 portales inmobiliarios, Facebook e Instagram' },
-  { icon: <FaSearchLocation />, title: 'Atencion 24/7', text: 'Escribenos en cualquier momento, estamos para atenderte' },
-  { icon: <FaIndustry />, title: 'Industria y comercio', text: '¿Buscas lote, local comercial, bodega para comprar o arrendar? Estás en el lugar indicado' }
+  {
+    icon: <FaBuilding className="bg-accent rounded-full p-1" />,
+    title: 'Proyectos inmobiliarios',
+    text: 'Descubre proyectos nuevos en Barranquilla, Cartagena y Soledad'
+  },
+  {
+    icon: <FaCreditCard className="bg-accent rounded-full p-1" />,
+    title: 'Pagos en línea',
+    text: 'Paga arriendo y servicios fácilmente a través de PSE'
+  },
+  {
+    icon: <FaSignature className="bg-accent rounded-full p-1" />,
+    title: 'Firma digital',
+    text: 'Firma contratos de forma segura desde cualquier lugar'
+  },
+  {
+    icon: <FaGlobe className="bg-accent rounded-full p-1" />,
+    title: 'Difusión inmobiliaria',
+    text: 'Publicamos tu inmueble en portales, redes sociales y canales aliados'
+  },
+  {
+    icon: <FaSearchLocation className="bg-accent rounded-full p-1" />,
+    title: 'Atención continua',
+    text: 'Estamos disponibles para ayudarte cuando lo necesites'
+  },
+  {
+    icon: <FaIndustry className="bg-accent rounded-full p-1" />,
+    title: 'Comercial e industrial',
+    text: 'Locales, bodegas y lotes para compra o arriendo'
+  }
 ];
 
 export default function QuickServices() {
   return (
-    <section className="bg-white px-5  py-10 ">
-      <div className="container-custom h-64">
-        <Swiper
-          modules={[Navigation, Autoplay]}
-          spaceBetween={5}
-          navigation
-          autoplay={{ delay: 2000, disabledOnInteraction: false }}
-          loop
-          className="max-w-6xl h-full text-center   "
-          breakpoints={{
-            320: { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}>
-          {services.map((service, idx) => (
-            <SwiperSlide key={idx} className="  w-1/3 sm:w-1/4 h-full  justify-center content-center">
-              <div className="flex flex-col h-56 w-2/3 items-center place-self-center justify-center rounded-2xl shadow-md shadow-gray-500/60 gap-3">
-                <div className="text-3xl text-primary">{service.icon}</div>
-                <p className="font semibold text-xl text-primary ">{service.title}</p>
-                <span className="font-normal text-sm text-gray-700">{service.text}</span>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+    <section className="container-custom py-10 w-full h-fit sm:h-[50vh]">
+      <div className="flex flex-col gap-2  w-full ">
+        <h2 className="text-center text-underline ">Algunos de nuestros servicios son:</h2>
+        <hr className="border-2 border-primary w-1/2 mx-auto" />
+        <div className="w-full h-full">
+          <Swiper
+            modules={[Navigation]}
+            spaceBetween={5}
+            navigation
+            loop
+            className="max-w-6xl h-full text-center "
+            breakpoints={{
+              320: { slidesPerView: 1 },
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}>
+            {services.map((service, idx) => (
+              <SwiperSlide key={idx} className="w-1/3 sm:w-1/4 h-full  justify-center content-center ">
+                <div className="bg-white flex flex-col min-h-60 w-2/3 px-2 items-center place-self-center justify-center rounded-[10px] shadow-md  gap-3 hover:-translate-y-5 transition">
+                  <div className="text-5xl text-white">{service.icon}</div>
+                  <p className="font semibold text-xl text-primary ">{service.title}</p>
+                  <span className="font-normal text-sm text-balance text-gray-700">{service.text}</span>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
+
     </section>
   );
 } 

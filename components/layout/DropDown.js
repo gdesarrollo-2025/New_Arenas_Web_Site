@@ -4,7 +4,7 @@ import { FaChevronDown } from 'react-icons/fa';
 export default function DropDown({ content }) {
     return (
         <div className="relative group">
-            <button className="flex items-center gap-1 text-black font-medium text-base focus:outline-hidden group-focus-within:text-primary  transition-colors">
+            <button className="flex items-center gap-1 text-white font-medium text-base focus:outline-hidden   group-hover:text-accent transition-colors">
                 {content.title} <FaChevronDown className="ml-1 text-xs" />
             </button>
             <div className="absolute left-0 mt-2 w-48 bg-white rounded-sm shadow-lg opacity-0  group-hover:opacity-100  group-hover:visible  invisible transition-all z-20">

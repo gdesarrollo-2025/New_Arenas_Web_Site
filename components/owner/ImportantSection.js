@@ -5,7 +5,7 @@ import Importante from "../../public/images/importante.json";
 export default function ImportantSection() {
     return (
         <section className="container-custom h-auto pt-10">
-            <div className="bg-primary rounded-lg text-white flex  flex-col sm:flex-row h-full items-center justify-around p-5">
+            <div className="bg-tertiary rounded-lg text-white flex  flex-col sm:flex-row h-full items-center justify-around p-5">
                 <Lottie loop animationData={Importante} play className=" w-full sm:w-1/3 h-fit order-1" />
                 <div className="w-full sm:w-1/2 order-2  flex flex-col gap-3">
                     <div className="flex flex-col gap-2">

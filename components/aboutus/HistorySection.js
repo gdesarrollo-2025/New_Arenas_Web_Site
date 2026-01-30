@@ -59,7 +59,7 @@ export default function HistorySection() {
                         <h2 className="text-2xl font-medium">Somos Arenas</h2>
                         <h1 className="text-4xl font-semibold text-primary ">Conoce nuestra historia</h1>
                     </div>
-                    <p className="text-lg px- text-justify">Con 82 años de experiencia y presencia en Barranquilla y Cartagena, contamos con 3 sedes,
+                    <p className="text-lg px- text-center">Con 82 años de experiencia y presencia en Barranquilla y Cartagena, contamos con 3 sedes,
                         múltiples salas de venta, además de una gran fuerza comercial y un equipo comprometido que nos
                         consolidan como una de las inmobiliarias líderes en la región Caribe.</p>
                 </div>

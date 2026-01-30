@@ -4,7 +4,7 @@ import { FaChevronDown, FaBed, FaBath, FaRulerCombined, FaMapMarkerAlt, FaHome, 
 
 import SelectField from './SelectField';
 
-export default function HeroSearch() {
+export default function HeroSearch({ setFiltersOn}) {
   const router = useRouter();
   const [filters, setFilters] = useState({})
   const [types, setTypes] = useState([]);
@@ -52,9 +52,10 @@ export default function HeroSearch() {
   }
 
   return (
-    <div className="w-full  max-w-xl lg:max-w-md mt-8 lg:mt-0 lg:ml-8">
+    <div className="max-w-xl lg:max-w-md ">
       <form className="bg-white rounded-2xl shadow-xl p-6 flex flex-col gap-4">
-        <h2 className="text-lg font-semibold text-gray-900 mb-2">Encuentra tu inmueble<br />de tus sueños</h2>
+        <h2 className="text-lg font-semibold text-gray-900 mb-2">Encuentra el inmueble de tus sueños</h2>
+        <p className="-mt-5 text-black/60 hover:text-accent active:text-accent/75 font-medium text-sm" onClick={()=> setFiltersOn(false)}> Quiero hacer una busqueda rapida</p>
         {/* Location */}
         <div className="relative ">
           <FaMapMarkerAlt className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
@@ -109,8 +110,9 @@ export default function HeroSearch() {
           </div>
           <input name="minPrice" placeholder="$10.000.000" type="text" onChange={handleSelectChange} className="rounded-sm border w-full pl-8 py-2"></input>
         </div>
-        <button type="button" className="bg-orange-500 text-white font-semibold rounded-full py-2 mt-2 hover:bg-orange-600 transition" onClick={Search}>Buscar</button>
+        <button type="button" className="bg-primary text-white font-semibold rounded-full py-2 mt-2 hover:bg-secondary transition-all" onClick={Search}>Buscar</button>
       </form>
+      
     </div>
   );
 } 

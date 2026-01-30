@@ -32,7 +32,7 @@ export default function OwnersPage() {
                 <meta name="description" content="Find and explore the best properties for sale and rent" />
                 <link rel="icon" type="image/webp" href="/FAVICON.webp" />
             </Head>
-            <div className="my-10">
+            <div className="">
                 <RequestSection onShowForm={onShowForm} open={open}/>
                 <StepByStepSection open={open} formRef={formRef} />
                 <StateSection />

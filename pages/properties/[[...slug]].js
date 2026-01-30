@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { getProperties } from '../../lib/api';
 import PropertyList from '../../components/properties/PropertyList';
 import FilterSidebar from '../../components/filters/FilterSidebar';
-import {urlToQuery} from '../../lib/parserSearchQuery';
+import { urlToQuery } from '../../lib/parserSearchQuery';
 
 export default function Properties({ initialProperties, initialPagination, initialFilters, fetchError }) {
   const router = useRouter();
@@ -43,9 +43,11 @@ export default function Properties({ initialProperties, initialPagination, initi
     <>
       <Head>
         <title>Properties | Arenas Real Estate</title>
+        <meta name="description" content="Browse our extensive catalog of properties" />
+        <link rel="icon" type="image/webp" href="/FAVICON.webp" />
       </Head>
 
-      <div className="container-custom py-6">
+      <div className="container-custom pt-32">
         <div className="flex flex-col lg:flex-row gap-6 mt-6">
           <div className="w-full lg:w-1/4">
             <FilterSidebar initialFilters={initialFilters} onChangeFilters={handleFiltersChange} />
@@ -76,7 +78,7 @@ export async function getServerSideProps(context) {
 
   //transforma el slug en query
   console.log(query.slug)
-  
+
   const result = await urlToQuery(slug?.join(" "));
 
   const location = result.location;
