@@ -7,7 +7,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: ["https://s3-us-west-2.amazonaws.com/pictures.domus.la/inmobiliaria_59/"] // Este parámetro permite utilizar imágenes sin optimizar (útil para desarrollo)
+    domains: ["s3-us-west-2.amazonaws.com"] // Este parámetro permite utilizar imágenes sin optimizar (útil para desarrollo)
   },
   webpack: (config, { isServer, dev }) => {
     // Cuando estamos en modo desarrollo, habilitamos hot reloading para archivos de configuración
@@ -21,6 +21,7 @@ const nextConfig = {
     return config;
   },
 }
+
 module.exports = {
   async rewrites() {
     return [
