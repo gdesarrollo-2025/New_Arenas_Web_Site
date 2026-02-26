@@ -22,3 +22,4 @@ export default function PropertyPage() {
     </>
   );
 } 
+//SERVER SIDE RENDERING PARA LOS DETALLES SEO FRIENDLY URL Y ETC

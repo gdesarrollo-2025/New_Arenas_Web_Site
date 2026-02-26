@@ -21,7 +21,7 @@ const Inmuebles = {
 const SobreNosotros = {
   title: "Quienes somos", pages: [
     { name: "Sobre Nosotros", link: "/about-us" },
-    { name: "Nuestros asesores", link: "/about-us" },
+    { name: "Nuestros asesores", link: "/brokers" },
     { name: "Contactanos", link: "/contact-us" }
   ]
 };

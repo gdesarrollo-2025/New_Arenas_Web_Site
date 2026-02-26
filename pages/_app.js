@@ -1,5 +1,4 @@
-import '../styles/globals.css';
-import '../styles/colors.css'; // Este archivo se recarga en caliente
+import '../styles/globals.css';// Este archivo se recarga en caliente
 import Layout from '../components/layout/Layout';
 import { useEffect } from 'react';
 import Script from 'next/script';
@@ -12,7 +11,7 @@ function MyApp({ Component, pageProps }) {
       const links = document.querySelectorAll('link[rel="stylesheet"]');
       links.forEach(link => {
         const href = link.getAttribute('href');
-        if (href && href.includes('colors.css')) {
+        if (href && href.includes('global.css')) {
           const newHref = `${href.split('?')[0]}?reload=${Date.now()}`;
           link.setAttribute('href', newHref);
         }

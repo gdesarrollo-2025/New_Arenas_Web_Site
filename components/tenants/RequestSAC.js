@@ -2,24 +2,20 @@ import Image from 'next/image';
 
 export default function RequestSAC({ onShowForm, open }) {
     return (
-        <section className="h-auto sm:h-125 px-5">
-            <div className="container-custom flex flex-col sm:flex-row h-full place-self-center items-center justify-between rounded-xl bg-primary text-white">
-                <div className="relative h-80 sm:h-full w-full sm:w-5/12">
-                    <Image src="/images/sac1.webp" alt="servicio al cliente" sizes="(max-width: 768) 45vw" className="object-contain" fill priority />
-                </div>
-                <div className="h-full w-full sm:w-7/12  p-5 sm:p-10 flex flex-col justify-center gap-10 order-first sm:order-2">
-                    <div>
-                        <h2 className="text-xl md:text-2xl font-medium">Servicio al Cliente</h2>
-                        <h1 className="text-2xl md:text-4xl font-semibold">Radique su solicitud</h1>
-                        <hr className="border-2  rounded-lg w-3/4" />
-                    </div>
-                    <p className=" text-sm md:text-lg text-justify font-medium">Gracias por confiar en nosotros, queremos brindarte un servicio excepcional;
+        <section className="relative flex flex-col justify-center h-[70vh]">
+            <Image src="/images/Tenants.webp" fill priority className="object-cover" alt="Arrendatarios Arenas SA"/>
+            <div className="absolute w-full h-full bg-linear-to-r from-primary to-transparent mix-blend-multiply backdrop-blur-xs"/>
+            <div className="z-20 w-full xl:w-2/3 h-full container-custom text-white flex flex-col  gap-3 items-start justify-center pt-10 px-10">
+                <div className="flex flex-col gap-5 items-start">
+                    <h2 className="text-center sm:text-justify text-lg sm:text-2xl "> Servicio al cliente</h2>
+                    <hr className="w-full lg:w-2/3 self-center sm:self-start" />
+                    <p className="text-left text-balance text-sm sm:text-base">Gracias por confiar en nosotros, queremos brindarte un servicio excepcional;
                         por eso nuestros canales de comunicación siempre estarán disponibles para ti.
-                        Si tienes algún requerimiento puedes radicarlo a través del siguiente formulario.</p>
-                    <button onClick={onShowForm} type="button" className="self-center border-2 border-white rounded-full min-w-50 px-2 py-1 hover:bg-accent hover:scale-102 active:scale-98"> {open ? "Ver menos" : "Haz tu requerimiento"}</button>
+                        Si tienes algún requerimiento puedes radicarlo a través del siguiente formulario.
+                    </p>
+                    <button onClick={onShowForm} type="button" className="self-start border-2 border-white rounded-full min-w-50 px-2 py-1 hover:bg-accent hover:scale-102 active:scale-98 active:bg-accent/75"> {open ? "Ver menos" : "Haz tu requerimiento"}</button>
                 </div>
             </div>
-
         </section>
     )
 }

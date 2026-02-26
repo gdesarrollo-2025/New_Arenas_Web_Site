@@ -27,8 +27,8 @@ export default function HubspotForm({ visible }) {
     <div
       id="hubspot-form-container"
       ref={formRef}
-      className={`overflow-hidden container-custom  items-center  w-full px-12 sm:px-14 md:px-20 lg:px-35 py-10 transition-all duration-300 ease-in-out
-        ${visible ? 'max-h-250 opacity-100':'max-h-0 opacity-0'}`}
+      className={`overflow-hidden container-custom  items-center  w-full px-12 sm:px-14 md:px-0 lg:px-35 transition-all duration-300 ease-in-out
+        ${visible ? 'min-h-fit max-h-250 opacity-100 py-10':'max-h-0 opacity-0 py-0'}`}
     />
   );
 }

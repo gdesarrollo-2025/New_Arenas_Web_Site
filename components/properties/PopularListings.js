@@ -130,8 +130,8 @@ export default function PopularListings({ cityname }) {
                     fill
                   />
                   <div className="absolute top-1 left-1 flex gap-1 ">
-                    {listing.biz.map( b => (
-                      <div className={`w-fit px-1 py-0.5 text-white font-medium rounded-[10px] ${tags[b]}`}>
+                    {listing.biz.map( (b,idx) => (
+                      <div key={idx}className={`w-fit px-1 py-0.5 text-white font-medium rounded-[10px] ${tags[b]}`}>
                         {String(b).charAt(0).toUpperCase() + b.slice(1)}
                       </div>
                     ))}

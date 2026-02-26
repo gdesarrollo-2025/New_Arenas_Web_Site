@@ -77,7 +77,8 @@ export async function getServerSideProps(context) {
   const slug = query?.slug || [];
 
   //transforma el slug en query
-  console.log(query.slug)
+  console.log("query: ",query)
+  console.log("slug: ",query.slug)
 
   const result = await urlToQuery(slug?.join(" "));
 
@@ -94,8 +95,8 @@ export async function getServerSideProps(context) {
     query: query.q || '',
     location: location,
     neighborhood_code: neighborhood || '',
-    propertyType: propertyType,
-    bizType: bizType,
+    propertyType: query.type || propertyType || '' ,
+    bizType: query.biz || bizType || '',
     sortBy: sortBy,
     // Manejar precios según tipo de negocio
     minPrice: query.pvmin || query.pcmin || query.minPrice || '',

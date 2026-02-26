@@ -7,7 +7,7 @@ export default function StepByStepSection({ open, formRef }) {
             <div className={`${open ? "overflow-hidden max-h-0 opacity-0" : "max-h-auto opacity-100"} transition-all duration-150 self-center flex flex-col w-full  gap-5 `}>
                 <h2 className="text-center text-primary">¿Como hacer tu solicitud?</h2>
                 <hr className="w-full border-2 border-primary rounded-full" />
-                <div className="overflow-hidden w-full flex flex-col lg:flex-row bg-linear-to-b/increasing lg:bg-linear-to-r/increasing from-accent to-primary bg-clip-text border-2 border-black">
+                <div className="overflow-hidden w-full flex flex-col lg:flex-row bg-linear-to-b/increasing lg:bg-linear-to-r/increasing from-accent to-primary bg-clip-text ">
                     <div className="flex items-center gap-2 ">
                         <span className="text-transparent text-8xl lg:text-[20vh] font-black lg:text-center hover:text-accent hover:scale-110 transition-all ">1</span>
                         <div className="flex flex-col">

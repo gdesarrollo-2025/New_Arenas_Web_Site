@@ -28,11 +28,11 @@ export default function OwnersPage() {
     return (
         <>
             <Head>
-                <title>Contact Us | Arenas Real State</title>
-                <meta name="description" content="Find and explore the best properties for sale and rent" />
+                <title>Propietarios | Arenas Inmobiliaria</title>
+                <meta name="description" content="En Arenas Inmobiliaria como propietario podras consultar, realizar peticiones y anticipio de canon de arriendo. " />
                 <link rel="icon" type="image/webp" href="/FAVICON.webp" />
             </Head>
-            <div className="">
+            <div className="relative flex flex-col ">
                 <RequestSection onShowForm={onShowForm} open={open}/>
                 <StepByStepSection open={open} formRef={formRef} />
                 <StateSection />

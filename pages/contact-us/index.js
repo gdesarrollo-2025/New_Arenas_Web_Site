@@ -10,8 +10,9 @@ export default function Location() {
     return (
         <>
             <Head>
-                <title>Locate Us | Arenas Real State</title>
-                <meta name="description" content="Find and explore the best properties for sale and rent" />
+                <title>Contactanos | Arenas Inmobiliaria</title>
+                <meta name="description" content="Contacta a Arenas Inmobiliaria para comprar, arrendar, vender tu vivienda o comercializar un proyecto " />
+                <meta name="keywords" content="Arenas Inmobiliaria, contacto inmobiliaria, proyectos inmobiliarios, comprar vivienda, comercializar proyecto, asesoría inmobiliaria Colombia"/>
                 <link rel="icon" type="image/webp" href="/FAVICON.webp" />
             </Head>
             <div className="">

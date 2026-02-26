@@ -13,9 +13,9 @@ export default function FeaturedProperties() {
         <p className="w-full md:w-1/2 text-balance"><strong>¿Estás interesado en algún proyecto?</strong> Te invitamos a conocer nuestra oferta de
           vivienda nueva, Locales Comerciales y Lotes/Bodegas Industriales.</p>
         <div className="w-full md:w-1/2 flex justify-between items-center">
-          <Link href="#" className="w-fit h-fit px-2 py-1 border-2 border-black rounded-[10px] hover:text-accent active:text-accent/75 hover:border-accent active:border-accent/75 transition">Vivienda</Link>
-          <Link href="#" className="w-fit h-fit px-2 py-1 border-2 border-black rounded-[10px] hover:text-accent active:text-accent/75 hover:border-accent active:border-accent/75 transition">Comercial</Link>
-          <Link href="#" className="w-fit h-fit px-2 py-1 border-2 border-black rounded-[10px] hover:text-accent active:text-accent/75 hover:border-accent active:border-accent/75 transition">Inversión</Link>
+          <Link href="/properties/apartamento-y-casa/" className="w-fit h-fit px-2 py-1 border-2 border-black rounded-[10px] hover:text-accent active:text-accent/75 hover:border-accent active:border-accent/75 transition">Vivienda</Link>
+          <Link href="/properties/local" className="w-fit h-fit px-2 py-1 border-2 border-black rounded-[10px] hover:text-accent active:text-accent/75 hover:border-accent active:border-accent/75 transition">Comercial</Link>
+          <Link href="/properties/lote-y-finca" className="w-fit h-fit px-2 py-1 border-2 border-black rounded-[10px] hover:text-accent active:text-accent/75 hover:border-accent active:border-accent/75 transition">Inversión</Link>
         </div>
       </div>
     </section >

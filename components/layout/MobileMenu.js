@@ -25,7 +25,6 @@ export default function MobileMenu({ active, setActive, buttons }) {
       setReset(true);
     }
     document.body.style.overflow = active ? "hidden" : "auto";
-    return () => (document.body.style.overflow = "auto");
   }, [active]);
 
   return (
