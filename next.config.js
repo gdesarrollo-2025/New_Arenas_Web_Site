@@ -7,8 +7,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: [],
-    unoptimized: true, // Este parámetro permite utilizar imágenes sin optimizar (útil para desarrollo)
+    domains: [], // Este parámetro permite utilizar imágenes sin optimizar (útil para desarrollo)
   },
   webpack: (config, { isServer, dev }) => {
     // Cuando estamos en modo desarrollo, habilitamos hot reloading para archivos de configuración
