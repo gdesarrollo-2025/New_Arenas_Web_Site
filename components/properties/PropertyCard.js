@@ -2,19 +2,23 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaBed, FaBath, FaRuler, FaHeart, FaRegHeart } from 'react-icons/fa';
+import { usePropertyStore } from '../../store/usePropertyStore';
 import PropertyQuickView from './PropertyQuickView';
 
 export default function PropertyCard({ property, loading = false }) {
+
+  const { favorites, addFavorite, removeFavorite } = usePropertyStore();
   const [isFavorite, setIsFavorite] = useState(false);
   const [showQuickView, setShowQuickView] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+
 
   // Formato de precio
   const formatPrice = (price) => {
     if (typeof price === 'string' && !price.includes('$')) {
       return `$${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`;
     }
-    
+
     return price;
   };
 
@@ -36,6 +40,10 @@ export default function PropertyCard({ property, loading = false }) {
     );
   }
 
+  const verifiedFavorite = favorites.some(
+    (f) => f.codpro === property.codpro
+  )
+
   return (
     <>
       <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
@@ -49,15 +57,14 @@ export default function PropertyCard({ property, loading = false }) {
               <Image
                 src={property.mainImage || '/images/property-placeholder.webp'}
                 alt={property.title}
-                className={`w-full h-full object-cover transition-opacity duration-300 ${
-                  imageLoaded ? 'opacity-100' : 'opacity-0'
-                }`}
+                className={`w-full h-full object-cover transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
                 onLoad={() => setImageLoaded(true)}
                 fill
               />
             </div>
           </a>
-          
+
           {/* Quick View Button */}
           <button
             onClick={() => setShowQuickView(true)}
@@ -67,25 +74,25 @@ export default function PropertyCard({ property, loading = false }) {
               Vista Rápida
             </span>
           </button>
-          
+
           {/* Favorite Button */}
           <button
-            onClick={() => setIsFavorite(!isFavorite)}
+            onClick={() => verifiedFavorite ? removeFavorite(property) : addFavorite(property)}
             className="absolute top-2 right-2 p-2 rounded-full bg-white bg-opacity-70 hover:bg-opacity-100 transition-colors"
           >
-            {isFavorite ? (
+            {verifiedFavorite ? (
               <FaHeart className="text-red-500" />
             ) : (
               <FaRegHeart className="text-gray-600" />
             )}
           </button>
-          
+
           {/* Property Status Tag */}
           <div className="absolute top-2 left-2 bg-accent text-white px-2 py-1 rounded-md text-xs font-bold">
             {property.status || 'Venta'}
           </div>
         </div>
-        
+
         {/* Property Details */}
         <div className="p-4">
           <div className="flex justify-between items-start mb-2">
@@ -96,11 +103,11 @@ export default function PropertyCard({ property, loading = false }) {
             </h3>
             <span className="text-primary font-bold">{formatPrice(property.price)}</span>
           </div>
-          
+
           <p className="text-gray-500 text-sm mb-3 truncate">
             {property.location}
           </p>
-          
+
           {/* Property Features */}
           <div className="flex justify-between text-sm text-gray-600">
             <div className="flex items-center">
@@ -118,7 +125,7 @@ export default function PropertyCard({ property, loading = false }) {
           </div>
         </div>
       </div>
-      
+
       {/* Quick View Modal */}
       {showQuickView && (
         <PropertyQuickView

@@ -7,9 +7,13 @@ import PropertyCard from './PropertyCard';
 import { getPropertyTypeName, getBizTypeName } from '../../lib/api';
 import { useRouter } from 'next/router';
 
+
 export default function PropertyList({ properties = [], pagination = {}, loading = false, sortBy = 'default', onSortChange, onPageChange, onOpenProperty }) {
+
   const router = useRouter();
   const [view, setView] = useState('grid');
+
+ 
 
   const formatPrice = (p) => {
     if (!p) return '';

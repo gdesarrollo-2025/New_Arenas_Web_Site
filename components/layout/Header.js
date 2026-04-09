@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import SearchBar from './SearchBar';
 import MobileMenu from './MobileMenu';
 import DropDown from './DropDown';
+import { FaRegHeart } from 'react-icons/fa6';
 
 //Contenido de los dropdowns tanto links como titulos
 const Inmuebles = {
@@ -77,7 +78,7 @@ export default function Header() {
           <DropDown content={Clientes} />
           {/* Servicios Dropdown */}
           <DropDown content={Servicios} />
-          <a href="#" className="flex items-center gap-2 text-white text-base font-medium"><FaUser className="text-lg text-primary" /> Login / Sign up</a>
+          <a href="/favoritos" className="flex items-center gap-2 text-white text-base font-medium"><span className="bg-white p-1 rounded-full"><FaRegHeart className=" text-lg text-primary" /></span> Mis Favoritos</a>
         </nav>
         {/* Botones a la derecha */}
         <div className="lg:hidden flex items-center gap-4 ml-4">

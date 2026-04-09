@@ -22,37 +22,93 @@ const icons = {
 
 const Services = [
     {
-        text: "Asesoria y elaboración de documentos",
-        icon: "AsesoriaDocumentos"
+        title: "Expertos en comercialización de proyectos",
+        items: ["Equipo especializado y atención personalizada"
+            , "Capacitación continua"
+            , "Estrategias comerciales dinámicas"
+            , "Optimización de procesos"
+            , "Conocimiento del journey del cliente"
+            , "Protocolos de atención"]
     },
     {
-        text: "Reunión semanal con gerencia",
-        icon: "ReunionSemanal"
+        title: "Proceso comercial disciplinado con CRM propio",
+        items: ["Gestión y seguimiento de leads"
+            , "Evolución constante del CRM"
+            , "Capacitación permanente del equipo"
+            , "Monitoreo de uso"
+            , "Protocolos de atención"]
     },
     {
-        text: "Asesoria a los clientes sobre ingresos y requisitos",
-        icon: "IngresosyRequisitos"
+        title: "⭐ Hacemos el mercadeo del proyecto ",
+        items: ["Agencia especializada in-house"
+            , "Sinergia entre marketing y ventas"
+            , "Conocimiento del mercado y del producto"]
     },
     {
-        text: "Tramites y cartera",
-        icon: "TramiteCartera"
+        title: "⭐ Gestionamos trámites y cartera del proyecto ",
+        items: ["Equipo especializado"
+            , "Dominio del proceso comercial y fiduciario"
+            , "Relación con notaría y fiducia"
+            , "Integración CRM y smarthome"]
     },
     {
-        text: "Coordinación de eventos",
-        icon: "CoordinaciónEventos"
+        title: "⭐ Análisis permanente del mercado ",
+        items: ["Equipo experto"
+            , "Lectura de tendencias"
+            , "Información de galería inmobiliaria"
+            , "Tecnología con datos históricos"]
     },
     {
-        text: "Marketing",
-        icon: "MarketingInmobiliario"
+        title: "Asesoría integral y búsqueda del lote ideal",
+        items: ["Captación especializada"
+            , "Estrategias comerciales dinámicas"]
     },
     {
-        text: "Auditoria de servicio al cliente",
-        icon: "Auditoria"
+        title: "Conexión con curaduría, notaría y planeación",
+        items: ["Relacionamiento institucional"]
     },
-    {
-        text: "Nuestro software comercial",
-        icon: "SoftwareComercial"
-    },
+
+    /*
+
+title:"Expertos en comercialización de proyectos
+items:["Equipo especializado y atención personalizada"
+,"Capacitación continua"
+,"Estrategias comerciales dinámicas"
+,"Optimización de procesos"
+,"Conocimiento del journey del cliente"
+,"Protocolos de atención"]
+
+title:"Proceso comercial disciplinado con CRM propio
+items:["Gestión y seguimiento de leads"
+,"Evolución constante del CRM"
+,"Capacitación permanente del equipo"
+,"Monitoreo de uso"
+,"Protocolos de atención"]
+
+title:"⭐ Hacemos el mercadeo del proyecto (Destacar)
+items:["Agencia especializada in-house"
+,"Sinergia entre marketing y ventas"
+,"Conocimiento del mercado y del producto"]
+
+title:"⭐ Gestionamos trámites y cartera del proyecto (Destacar)
+items:["Equipo especializado"
+,"Dominio del proceso comercial y fiduciario"
+,"Relación con notaría y fiducia"
+,"Integración CRM y smarthome"]
+
+title:"⭐ Análisis permanente del mercado (Destacar)
+items:["Equipo experto"
+,"Lectura de tendencias"
+,"Información de galería inmobiliaria"
+,"Tecnología con datos históricos"]
+
+title:"Asesoría integral y búsqueda del lote ideal
+items:["Captación especializada"
+,"Estrategias comerciales dinámicas"]
+
+title:"Conexión con curaduría, notaría y planeación
+items:["Relacionamiento institucional"] 
+     */
 ]
 
 export default function OurServicesSection() {
@@ -61,11 +117,15 @@ export default function OurServicesSection() {
             <h2 className="text-primary text-2xl">Nuestros servicios</h2>
             <hr className="border-2 border-primary w-full md:w-1/2 " />
             <p className="text-sm">Ponemos a tu disposicion un equipo integral que se adapta a tu proyecto. Desde la legalización hasta la venta, cubrimos todo el proceso</p>
-            <ul className="grid grid-flow grid-cols-2 md:grid-cols-4  lg:grid-cols-6 xl:grid-cols-8 gap-3 place-self-center pt-3">
-                {Services.map((s, idx) => (
-                    <li key={idx} className="shadow-md rounded-[10px] p-3 w-36 h-36 flex flex-col items-stretch justify-center text-center gap-2 ">
-                        <span className="w-full h-1/3  text-primary ">{icons[s.icon]}</span>
-                        <p className="w-full h-2/3  text-pretty text-xs md:text-sm">{s.text}</p>
+            <ul className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 ">
+                {Services.map((s,idx) => (
+                    <li key={idx} className={`shadow-md rounded-[10px] overflow-hidden ${s.title.match("⭐")? "border-accent border-2 ":"border-0"}`}>
+                        <h3 className={`font-semibold  p-3 ${s.title.match("⭐")? "bg-accent":"bg-primary text-white"}`}>{s.title}</h3>
+                        <ul className="text-left p-3">
+                            {s.items.map((i,idx) => (
+                                <p key={idx} className="text-sm  ">{i}</p>
+                            ))}
+                        </ul>
                     </li>
                 ))}
             </ul>

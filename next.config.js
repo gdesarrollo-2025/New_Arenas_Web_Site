@@ -7,7 +7,8 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: ["s3-us-west-2.amazonaws.com"] // Este parámetro permite utilizar imágenes sin optimizar (útil para desarrollo)
+    domains: ["s3-us-west-2.amazonaws.com"],
+    unoptimized: process.env.ENVIRONMENT == "DEV", // Este parámetro permite utilizar imágenes sin optimizar (útil para desarrollo)
   },
   webpack: (config, { isServer, dev }) => {
     // Cuando estamos en modo desarrollo, habilitamos hot reloading para archivos de configuración

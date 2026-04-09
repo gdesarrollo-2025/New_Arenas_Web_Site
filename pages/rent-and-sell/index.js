@@ -261,7 +261,7 @@ export default function RentAndSell() {
                     <div className="bg-linear-to-r from-secondary  from-50% to-transparent absolute w-full h-full backdrop-blur-xs mix-blend-multiply" />
                     <div className="container-custom  w-full h-full flex flex-col gap-5 py-5 z-20 text-white justify-center">
                         <h1 className="w-full sm:w-[60%] text-3xl text-balance">Arrienda, vende o encuentra tu inmueble con el respaldo de Arenas</h1>
-                        <p>Soluciones inmobiliarias completas para propietarios, compradores, arrendatarios y vendedores.</p>
+                        <p>Contamos con mas de 80 años de experiencia arrendando y vendiendo inmuebles. Proporcionamos Soluciones inmobiliarias completas para propietarios, compradores, arrendatarios y vendedores.</p>
                     </div>
                 </section>
                 <section className=" container-custom relative flex flex-col ">

@@ -60,7 +60,7 @@ export default function Footer() {
     <footer className="bg-secondary text-white py-10">
       <div className="flex flex-col gap-6 container-custom">
         <div><Image src="images/Arenas_logo.webp" height={100} width={200} alt={"logo en blanco grupo arenas"}/></div>
-        <div className="flex flex-col md:flex-row gap-4 justify-between">
+        <div className="grid grid-cols-2 md:flex md:flex-row gap-4 justify-between">
           <ListItem content={inmuebles} />
           <ListItem content={Nosotros} />
           <ListItem content={Portales}/>

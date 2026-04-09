@@ -13,21 +13,21 @@ import OurServicesSection from "../../components/Companies/OurServicesSection";
 import OurAlliesSection from "../../components/Companies/OurAlliesSection";
 
 const Projects = [
-    { name: "Guayacanes Aptos", around: "P.R. Nuestro Atlántico", city: "Soledad", area: 51, bedrooms: 3, bathrooms: 2, status: "En Venta", smmlv: true, precio: 120, img: "/images/Guayacanes_Aptos.webp", badge: "" },
-    { name: "Guayacanes Casas", around: "P.R. Nuestro Atlántico", city: "Soledad", area: 51, bedrooms: 3, bathrooms: 2, status: "En Venta", smmlv: true, precio: 150, img: "/images/Guayacanes_Casas.webp", badge: "" },
-    { name: "Unique 76", around: "Betania", city: "Barranquilla", area: 32, bedrooms: 3, bathrooms: 2, status: "Ultimas Unidades", smmlv: false, precio: 520000000, img: "/images/Unique_76.webp", badge: "#1 en galeria" },
-    { name: "Almeria 1", around: "Sevilla Real / Los Almendros", city: "Barranquilla", area: 53, bedrooms: 3, bathrooms: 2, status: "Vendido", smmlv: false, precio: 0, img: "/images/Almeria.webp", badge: "" },
-    { name: "Icaco Apartamentos", around: "Barrio Abajo", city: "Barranquilla", area: 56, bedrooms: 2, bathrooms: 2, status: "Lanzamiento", smmlv: true, precio: 145, img: "/images/Icaco.webp", badge: "" },
-    { name: "Parque de La Castellana", around: "La Castellana", city: "Cartagena", area: 63.31, bedrooms: 3, bathrooms: 2, status: "Lanzamiento", smmlv: false, precio: 0, img: "/images/Parque_de_la_castellana.webp", badge: "" },
-    { name: "Torre 44 Apartamentos", around: "Plaza de la Paz", city: "Barranquilla", area: 59, bedrooms: 3, bathrooms: 2, status: "Vendido", smmlv: false, precio: 0, img: "/images/Torre_44.webp", badge: "#1 en galeria" },
-    { name: "Almeria 2 Apartamentos", around: "Sevilla Real", city: "Barranquilla", area: 54, bedrooms: 3, bathrooms: 2, status: "En Venta", smmlv: true, precio: 116, img: "/images/Almeria_2.webp", badge: "" },
-    { name: "De Cambil 55 Luxury", around: "El Golf", city: "Barranquilla", area: 146.09, bedrooms: 3, bathrooms: 2, status: "En Venta", smmlv: false, precio: 1700000000, img: "/images/DeCambil_55.webp", badge: "" },
-    { name: "Papaya Apartamentos", around: "San francisco", city: "Barranquilla", area: 54, bedrooms: 2, bathrooms: 2, status: "Vendido", smmlv: false, precio: 0, img: "/images/Papaya.webp", badge: "Record en ventas 2022" },
-    { name: "Acuarela del Rio", around: "Bellavista", city: "Barranquilla", area: 68, bedrooms: 3, bathrooms: 2, status: "En Venta", smmlv: false, precio: 457000000, img: "/images/Acuarela.webp", badge: "" },
-    { name: "Las Acacias Casas", around: "P.R. Nuestro Atlántico", city: "Soledad", area: 64, bedrooms: 3, bathrooms: 1, status: "Vendido", smmlv: false, precio: 0, img: "/images/Las_acacias.webp", badge: "" },
-    { name: "Montebianco", around: "Los Alpes", city: "Cartagena", area: 50, bedrooms: 2, bathrooms: 2, status: "Vendido", smmlv: false, precio: 0, img: "/images/Montebianco.webp", badge: "" },
-    { name: "Park 68", around: "Bellavista", city: "Barranquilla", area: 89, bedrooms: 2, bathrooms: 3, status: "Vendido", smmlv: false, precio: 0, img: "/images/Park_68.webp", badge: "" },
-    { name: "Portal del Sol", around: "Soledad", city: "Soledad", area: 54, bedrooms: 3, bathrooms: 1, status: "Vendido", smmlv: false, precio: 0, img: "/images/Portal_del_sol.webp", badge: "" },
+    { name: "Guayacanes Aptos", around: "P.R. Nuestro Atlántico", city: "Soledad", area: 51, bedrooms: 3, bathrooms: 2, status: "En Venta", smmlv: true, precio: 120, img: "/images/Guayacanes_Aptos.webp", badge: "" , link:""},
+    { name: "Guayacanes Casas", around: "P.R. Nuestro Atlántico", city: "Soledad", area: 51, bedrooms: 3, bathrooms: 2, status: "En Venta", smmlv: true, precio: 150, img: "/images/Guayacanes_Casas.webp", badge: "" , link:""},
+    { name: "Unique 76", around: "Betania", city: "Barranquilla", area: 32, bedrooms: 3, bathrooms: 2, status: "Ultimas Unidades", smmlv: false, precio: 520000000, img: "/images/Unique_76.webp", badge: "#1 en galeria" , link:""},
+    { name: "Almeria 1", around: "Sevilla Real / Los Almendros", city: "Barranquilla", area: 53, bedrooms: 3, bathrooms: 2, status: "Vendido", smmlv: false, precio: 0, img: "/images/Almeria.webp", badge: "" , link:""},
+    { name: "Icaco Apartamentos", around: "Barrio Abajo", city: "Barranquilla", area: 56, bedrooms: 2, bathrooms: 2, status: "Lanzamiento", smmlv: true, precio: 145, img: "/images/Icaco.webp", badge: "" , link:"https://arenasinmobiliaria.co/proyecto/icaco-apartamentos/"},
+    { name: "Parque de La Castellana", around: "La Castellana", city: "Cartagena", area: 63.31, bedrooms: 3, bathrooms: 2, status: "Lanzamiento", smmlv: false, precio: 0, img: "/images/Parque_de_la_castellana.webp", badge: "" , link:""},
+    { name: "Torre 44 Apartamentos", around: "Plaza de la Paz", city: "Barranquilla", area: 59, bedrooms: 3, bathrooms: 2, status: "Vendido", smmlv: false, precio: 0, img: "/images/Torre_44.webp", badge: "#1 en galeria" , link:""},
+    { name: "Almeria 2 Apartamentos", around: "Sevilla Real", city: "Barranquilla", area: 54, bedrooms: 3, bathrooms: 2, status: "En Venta", smmlv: true, precio: 116, img: "/images/Almeria_2.webp", badge: "" , link:""},
+    { name: "De Cambil 55 Luxury", around: "El Golf", city: "Barranquilla", area: 146.09, bedrooms: 3, bathrooms: 2, status: "En Venta", smmlv: false, precio: 1700000000, img: "/images/DeCambil_55.webp", badge: "" , link:""},
+    { name: "Papaya Apartamentos", around: "San francisco", city: "Barranquilla", area: 54, bedrooms: 2, bathrooms: 2, status: "Vendido", smmlv: false, precio: 0, img: "/images/Papaya.webp", badge: "Record en ventas 2022" , link:"https://arenasinmobiliaria.co/proyecto/papaya-apartamentos/"},
+    { name: "Acuarela del Rio", around: "Bellavista", city: "Barranquilla", area: 68, bedrooms: 3, bathrooms: 2, status: "En Venta", smmlv: false, precio: 457000000, img: "/images/Acuarela.webp", badge: "" , link:""},
+    { name: "Las Acacias Casas", around: "P.R. Nuestro Atlántico", city: "Soledad", area: 64, bedrooms: 3, bathrooms: 1, status: "Vendido", smmlv: false, precio: 0, img: "/images/Las_acacias.webp", badge: "" , link:""},
+    { name: "Montebianco", around: "Los Alpes", city: "Cartagena", area: 50, bedrooms: 2, bathrooms: 2, status: "Vendido", smmlv: false, precio: 0, img: "/images/Montebianco.webp", badge: "" , link:""},
+    { name: "Park 68", around: "Bellavista", city: "Barranquilla", area: 89, bedrooms: 2, bathrooms: 3, status: "Vendido", smmlv: false, precio: 0, img: "/images/Park_68.webp", badge: "" , link:""},
+    { name: "Portal del Sol", around: "Soledad", city: "Soledad", area: 54, bedrooms: 3, bathrooms: 1, status: "Vendido", smmlv: false, precio: 0, img: "/images/Portal_del_sol.webp", badge: "" , link:""},
 ]
 
 
